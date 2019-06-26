@@ -56,9 +56,12 @@
     </div>
     <div>
       <form id="create-survey">
-        <input type="text" name="survey[title]" maxlength="40" placeholder="Title">
-        <input type="text" name="survey[option]" maxlength="40" placeholder="Option">
-        <input type="text" name="survey[option]" maxlength="40" placeholder="Option">
+        <input type="text" name="survey[title]" maxlength="40" placeholder="Title"><br>
+        <input type="text" name="option[]" maxlength="40" placeholder="Option Name"><br>
+        <input type="text" name="option[]" maxlength="40" placeholder="Option Name"><br>
+        <div id='extra-options'>
+        </div>
+        <button type=button id='add-option' class='btn btn-success'>+</button>
         <input type="submit" value="create-survey" class="btn btn-success">
       </form>
     </div>

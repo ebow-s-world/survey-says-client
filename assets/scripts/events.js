@@ -7,8 +7,8 @@ const onSignUp = function (event) {
   event.preventDefault()
   const data = getFormFields(this)
   api.signUp(data)
-    // .then(ui.signUpSuccess)
-    // .catch(ui.signUpFailure)
+  // .then(ui.signUpSuccess)
+  // .catch(ui.signUpFailure)
 }
 
 const onSignIn = function (event) {
@@ -22,8 +22,8 @@ const onSignIn = function (event) {
 const onSignOut = function (event) {
   event.preventDefault()
   api.signOut()
-    // .then(ui.signOutSuccess)
-    // .catch(ui.signOutFailure)
+  // .then(ui.signOutSuccess)
+  // .catch(ui.signOutFailure)
 }
 
 const onChangePassword = function (event) {
@@ -39,6 +39,10 @@ const addHandlers = () => {
   $('#sign-in').on('submit', onSignIn)
   $('#sign-out').on('submit', onSignOut)
   $('#change-password').on('submit', onChangePassword)
+
+  store.optionCount = 0
+  $('#add-option').on('click', ui.onAddOption)
+  $('#extra-options').on('click', '#remove-option', ui.onRemoveOption)
 }
 
 module.exports = {
