@@ -1,17 +1,58 @@
 <!DOCTYPE html>
 <html>
-    <head>
-      <title>Example</title>
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-
+  <head>
+    <title>Survey Says</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
       <!-- Do not add `link` tags-->
-      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
-
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
       <!-- Do not add `script` tags-->
-      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
-      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
-    </head>
-    <body>
-      <h1>Browser Template</h1>
-    </body>
+    <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+    <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+  </head>
+  <body>
+    <nav id="top-nav">
+      <div class="app-name">Survey Says</div>
+      <div class="nav-buttons">
+        <div class="dropdown">
+          <button class="btn btn-success dropdown-toggle disappear" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Account
+          </button>
+          <div class="dropdown-menu">
+          <form id="change-password" class="dropdown-item">
+          <div class="account-line">
+            <input type="password" name="passwords[old]" placeholder="Old Password" class="log-field">
+          </div>
+          <div class="account-line">
+            <input type="password" name="passwords[new]" placeholder="New Password" class="log-field">
+          </div>
+          <div>
+            <input type="submit" value="Change Password" class="btn btn-success btn-block">
+          </div>
+          </form>
+          <form id="sign-out" class="dropdown-item">
+            <input type="submit" value="Sign out" class="btn btn-success btn-block kill-dropdown">
+          </form>
+            <div class="dropdown-footer">
+              <p class="dropdown-item change-password-message"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div class="log">
+      <form id="sign-up">
+        <h3 class="initLog-headers">Sign up</h3>
+          <input class="third log-field" type="text" name="credentials[email]" maxlength="40" placeholder="Email">
+          <input class="third log-field" type="password" name="credentials[password]" maxlength="40" placeholder="Password">
+          <input class="third log-field" type="password" name="credentials[password_confirmation]" maxlength="40" placeholder="Confirm Password">
+          <br><input type="submit" value="Sign up" class="btn btn-success btn-block">
+      </form>
+      <form id="sign-in">
+        <h3 class="initLog-headers">Sign in</h3>
+          <input class="third log-field" type="text" name="credentials[email]" maxlength="40" placeholder="Email">
+          <input class="third log-field" type="password" name="credentials[password]" maxlength="40" placeholder="Password">
+          <br><input type="submit" value="Sign in" class="btn btn-success btn-block third">
+      </form>
+      </div>
+  </body>
 </html>

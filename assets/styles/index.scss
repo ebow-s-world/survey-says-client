@@ -1,1 +1,23 @@
 @import '~bootstrap/scss/bootstrap';
+
+#top-nav {
+  height: fixed;
+  @extend .navbar;
+  @extend .navbar-dark;
+  @extend .bg-dark;
+  @extend .fixed-top;
+
+  .app-name {
+    @extend .navbar-brand;
+    @extend .h1;
+    margin-bottom: 0;
+    font-family: 'Montserrat Alternates', sans-serif;
+  }
+}
+
+.log {
+  justify-content: center;
+  margin: 0 auto;
+  margin-top: 70px;
+  width: 33%;
+}
