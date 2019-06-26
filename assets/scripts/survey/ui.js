@@ -11,7 +11,7 @@ const onCreateSurveySuccess = responseData => {
   // setTimeout(() => $('#message').text(''), 4000)
 }
 
-// doesn't work yet
+
 const onIndexSurveySuccess = responseData => {
   // $('#content').html(showSurveyTemplate({survey: responseData.survey}))
   console.log(responseData)

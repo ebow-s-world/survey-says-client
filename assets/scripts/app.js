@@ -11,6 +11,5 @@ const surveyEvents = require('./survey/events.js')
 $(() => {
   events.addHandlers()
   $('#create-survey').on('submit', surveyEvents.onCreateSurvey)
-  // index doesn't work yet
   $('#index-survey').on('click', surveyEvents.onIndexSurvey)
 })

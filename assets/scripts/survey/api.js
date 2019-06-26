@@ -14,7 +14,6 @@ const createSurvey = formData => {
   })
 }
 
-// doesn't work yet
 const indexSurvey = () => {
   console.log('from api')
   return $.ajax({
