@@ -20,7 +20,7 @@ const onIndexSurvey = (event) => {
   event.preventDefault()
 
   api.indexSurvey()
-    .then(ui.indexSurveySuccess)
+    .then(ui.onIndexSurveySuccess)
     .catch(ui.onIndexSurveyFailure)
 }
 
