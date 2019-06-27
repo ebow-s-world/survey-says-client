@@ -65,11 +65,35 @@ const deleteOption = function (id) {
   })
 }
 
+const updateSurvey = function (id, data) {
+  return $.ajax({
+    url: config.apiUrl + '/surveys/' + id,
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data
+  })
+}
+
+const updateOption = function (id, data) {
+  return $.ajax({
+    url: config.apiUrl + '/options/' + id,
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data
+  })
+}
+
 module.exports = {
   createSurvey,
   indexSurveys,
   indexYourSurveys,
   deleteSurvey,
   createOption,
-  deleteOption
+  deleteOption,
+  updateSurvey,
+  updateOption
 }

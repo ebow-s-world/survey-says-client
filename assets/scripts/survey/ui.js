@@ -3,6 +3,9 @@
 const store = require('../store')
 const indexDisplay = require('../templates/index-surveys.handlebars')
 const indexDisplayMy = require('../templates/display-my-index.handlebars')
+const updateSurveyForm = require('../templates/update-survey-field.handlebars')
+const createSurvey = require('../templates/create-survey-field.handlebars')
+const createOption = require('../templates/create-option-field.handlebars')
 
 const onCreateSurveySuccess = responseData => {
   // $('#content').html(showSurveyTemplate({survey: responseData.survey}))
@@ -32,25 +35,50 @@ const onIndexMySurveysSuccess = responseData => {
   // setTimeout(() => $('#message').text(''), 4000)
 }
 
+const onDeleteSuccess = () => {
+  $('.content').text('deleted!')
+}
+
+const showCreateSurvey = function (event) {
+  store.optionId = 0
+  store.optionCount = 2
+  $('#create-form').append(createSurvey())
+  $('#options').append(createOption({ id: store.optionId++ }))
+  $('#options').append(createOption({ id: store.optionId++ }))
+  updateAddRemove()
+}
+
+const onAddOption = function (event) {
+  event.stopPropagation()
+  $('#options').append(createOption({ id: store.optionId++ }))
+  store.optionCount++
+  updateAddRemove()
+}
+
+const onRemoveOption = function (event) {
+  event.stopPropagation()
+  const id = $(event.target).data('optionId')
+  $(`#option-${id}`).remove()
+  store.optionCount--
+  updateAddRemove()
+}
+
+const updateAddRemove = function () {
+  if (store.optionCount < 3) $('.remove-option').addClass('disable')
+  else if (store.optionCount > 9) $('#add-option').addClass('disable')
+  else {
+    $('.remove-option').removeClass('disable')
+    $('#add-option').removeClass('disable')
+  }
+}
+
 const onShowSurveyUpdate = event => {
   const survey = store.mySurveys.find(surv => surv._id === $(event.target).data('id'))
   console.log(survey)
-}
-
-// const onIndexYourSurveysSuccess = responseData => {
-//   // console.log(responseData.survey)
-//   // store.user = responseData.user.id
-//   console.log(store.user._id)
-//   for (let i = 0; i < responseData.survey.length; i++) {
-//     // console.log(responseData.survey[i].owner)
-//     if (responseData.survey[i].owner === store.user._id) {
-//       console.log(responseData.survey[i])
-//     }
-//   }
-// }
-
-const onDeleteSuccess = () => {
-  $('.content').text('deleted!')
+  store.optionId = 0
+  store.optionCount = survey.options.length
+  $('#create-form').html(updateSurveyForm({ survey: survey }))
+  updateAddRemove()
 }
 
 module.exports = {
@@ -58,5 +86,8 @@ module.exports = {
   onIndexSurveysSuccess,
   onIndexMySurveysSuccess,
   onShowSurveyUpdate,
-  onDeleteSuccess
+  onDeleteSuccess,
+  onAddOption,
+  onRemoveOption,
+  showCreateSurvey
 }

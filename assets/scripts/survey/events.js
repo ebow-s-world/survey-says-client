@@ -58,14 +58,16 @@ const onUpdateSurvey = async function (event) {
   const data = getFormFields(event.target)
   const surveyId = $(event.target).data('id')
   const optionIds = []
-  event.target.elements.forEach(element => {
-    if (element.hasAttribute('optionId')) optionIds.push(element.getAttribute('optionId'))
-  })
+  console.log(event.target.elements)
+  const elements = event.target.elements
+  for (let i = 0; i < elements.length; i++) {
+    if (elements[i].hasAttribute('data-optionId')) optionIds.push(elements[i].getAttribute('data-optionId'))
+  }
   console.log(optionIds)
   try {
     await api.updateSurvey(surveyId, { survey: data.survey })
     for (let i = 0; i < optionIds.length; i++) {
-      if (typeof optionIds[i] === 'string') await api.updateOption(optionIds[i], {option: {name: data.options[i]}})
+      if (optionIds[i].length > 10) await api.updateOption(optionIds[i], {option: {name: data.options[i]}})
       else await api.createOption({option: {name: data.options[i], survey: surveyId}})
     }
   } catch (err) {

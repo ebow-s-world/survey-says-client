@@ -1,7 +1,5 @@
 const store = require('./store')
 // const api = require('./api')
-const createSurvey = require('./templates/create-survey-field.handlebars')
-const createOption = require('./templates/create-option-field.handlebars')
 
 const signUpSuccess = function () {
   $('#log-message').show()
@@ -44,47 +42,11 @@ const signOutFailure = function () {
   $('#log-message').delay(2000).fadeOut('slow')
 }
 
-const showCreateSurvey = function (event) {
-  store.optionId = 0
-  store.optionCount = 2
-  $('#create-form').append(createSurvey())
-  $('#options').append(createOption({ count: store.optionId++ }))
-  $('#options').append(createOption({ count: store.optionId++ }))
-  updateAddRemove()
-}
-
-const onAddOption = function (event) {
-  event.stopPropagation()
-  $('#options').append(createOption({ count: store.optionId++ }))
-  store.optionCount++
-  updateAddRemove()
-}
-
-const onRemoveOption = function (event) {
-  event.stopPropagation()
-  const id = $(event.target).data('optionId')
-  $(`#option-${id}`).remove()
-  store.optionCount--
-  updateAddRemove()
-}
-
-const updateAddRemove = function () {
-  if (store.optionCount < 3) $('.remove-option').addClass('disable')
-  else if (store.optionCount > 9) $('#add-option').addClass('disable')
-  else {
-    $('.remove-option').removeClass('disable')
-    $('#add-option').removeClass('disable')
-  }
-}
-
 module.exports = {
   signUpSuccess,
   signUpFailure,
   signInSuccess,
-  showCreateSurvey,
   signInFailure,
   signOutSuccess,
-  signOutFailure,
-  onAddOption,
-  onRemoveOption
+  signOutFailure
 }
