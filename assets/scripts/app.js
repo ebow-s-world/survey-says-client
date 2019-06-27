@@ -12,4 +12,5 @@ $(() => {
   events.addHandlers()
   $('#create-survey').on('submit', surveyEvents.onCreateSurvey)
   $('#index-survey').on('click', surveyEvents.onIndexSurvey)
+  $('#index-yours').on('click', surveyEvents.onIndexYourSurveys)
 })

@@ -24,7 +24,15 @@ const onIndexSurvey = (event) => {
     .catch(ui.onIndexSurveyFailure)
 }
 
+const onIndexYourSurveys = (event) => {
+  event.preventDefault()
+
+  api.indexSurvey()
+    .then(ui.onIndexYourSurveysSuccess)
+}
+
 module.exports = {
   onCreateSurvey,
-  onIndexSurvey
+  onIndexSurvey,
+  onIndexYourSurveys
 }
