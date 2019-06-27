@@ -4,18 +4,29 @@ const getFormFields = require('../../../lib/get-form-fields')
 const api = require('./api.js')
 const ui = require('./ui.js')
 
-const onCreateSurvey = (event) => {
+const onCreateSurvey = async function (event) {
   event.preventDefault()
-
-  const form = event.target
-  const formData = getFormFields(form)
-
-  api.createSurvey(formData)
-    .then(ui.onCreateSurveySuccess)
-    .catch(ui.onCreateSurveyFailure)
+  const data = getFormFields(event.target)
+  let newSurvey
+  const newOptions = []
+  try {
+    newSurvey = await api.createSurvey({ survey: data.survey })
+    console.log(newSurvey.survey._id)
+    for (let i = 0; i < data.options.length; i++) {
+      newOptions[i] = await api.createOption({option: {name: data.options[i], survey: newSurvey.survey._id}})
+    }
+  } catch (err) {
+    console.log(newOptions)
+    if (newSurvey) {
+      api.deleteSurvey(newSurvey.survey.id)
+      newOptions.forEach(option => api.deleteOption(option.option._id))
+    }
+    // ui.createSurveyFailure
+    throw err
+  }
 }
 
-// doesn't work yet
+
 const onIndexSurvey = (event) => {
   event.preventDefault()
 

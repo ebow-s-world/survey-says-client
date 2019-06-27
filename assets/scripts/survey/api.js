@@ -3,17 +3,6 @@
 const config = require('../config')
 const store = require('../store')
 
-const createSurvey = formData => {
-  return $.ajax({
-    url: config.apiUrl + '/surveys',
-    method: 'POST',
-    data: formData,
-    headers: {
-      Authorization: 'Token token=' + store.user.token
-    }
-  })
-}
-
 const indexSurvey = () => {
   return $.ajax({
     url: config.apiUrl + '/surveys',
@@ -24,7 +13,52 @@ const indexSurvey = () => {
   })
 }
 
+const createSurvey = function (data) {
+  return $.ajax({
+    url: config.apiUrl + '/surveys',
+    method: 'POST',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data
+  })
+}
+
+const deleteSurvey = function (id) {
+  return $.ajax({
+    url: config.apiUrl + '/surveys/' + id,
+    method: 'DELETE',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
+const createOption = function (data) {
+  return $.ajax({
+    url: config.apiUrl + '/options',
+    method: 'POST',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data
+  })
+}
+
+const deleteOption = function (id) {
+  return $.ajax({
+    url: config.apiUrl + '/options/' + id,
+    method: 'DELETE',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
 module.exports = {
   createSurvey,
-  indexSurvey
+  indexSurvey,
+  deleteSurvey,
+  createOption,
+  deleteOption
 }

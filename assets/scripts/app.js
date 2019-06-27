@@ -1,7 +1,7 @@
 'use strict'
 
 const events = require('./events.js')
-const surveyEvents = require('./survey/events.js')
+
 // use require with a reference to bundle the file and use it in this file
 // const example = require('./example')
 
@@ -10,7 +10,4 @@ const surveyEvents = require('./survey/events.js')
 
 $(() => {
   events.addHandlers()
-  $('#create-survey').on('submit', surveyEvents.onCreateSurvey)
-  $('#index-survey').on('click', surveyEvents.onIndexSurvey)
-  $('#index-yours').on('click', surveyEvents.onIndexYourSurveys)
 })
