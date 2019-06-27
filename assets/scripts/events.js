@@ -63,7 +63,7 @@ const addHandlers = () => {
   $('#sign-out').on('submit', onSignOut)
   $('#change-password').on('submit', onChangePassword)
 
-  $('#create-survey').on('submit', surveyEvents.onCreateSurvey)
+  $('#create-form').on('submit', '#create-survey', surveyEvents.onCreateSurvey)
   $('#index-survey').on('click', surveyEvents.onIndexSurveys)
   $('#index-yours').on('click', surveyEvents.onIndexYourSurveys)
 
