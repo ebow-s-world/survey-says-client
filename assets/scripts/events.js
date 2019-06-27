@@ -64,7 +64,7 @@ const addHandlers = () => {
   $('#change-password').on('submit', onChangePassword)
 
   $('#create-survey').on('submit', surveyEvents.onCreateSurvey)
-  $('#index-survey').on('click', surveyEvents.onIndexSurvey)
+  $('#index-survey').on('click', surveyEvents.onIndexSurveys)
   $('#index-yours').on('click', surveyEvents.onIndexYourSurveys)
 
   ui.showCreateSurvey()
