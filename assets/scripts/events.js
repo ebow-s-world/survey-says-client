@@ -8,8 +8,8 @@ const onSignUp = function (event) {
   event.preventDefault()
   const data = getFormFields(this)
   api.signUp(data)
-  // .then(ui.signUpSuccess)
-  // .catch(ui.signUpFailure)
+    .then(ui.signUpSuccess)
+    .catch(ui.signUpFailure)
 }
 
 const onSignIn = function (event) {
@@ -17,14 +17,14 @@ const onSignIn = function (event) {
   const data = getFormFields(this)
   api.signIn(data)
     .then(ui.signInSuccess)
-    // .catch(ui.signInFailure)
+    .catch(ui.signInFailure)
 }
 
 const onSignOut = function (event) {
   event.preventDefault()
   api.signOut()
-  // .then(ui.signOutSuccess)
-  // .catch(ui.signOutFailure)
+    .then(ui.signOutSuccess)
+    .catch(ui.signOutFailure)
 }
 
 const onChangePassword = function (event) {
@@ -32,7 +32,7 @@ const onChangePassword = function (event) {
   const data = getFormFields(this)
   api.changePassword(data)
     .then(() => console.log(store.user))
-    // .catch(ui.changePasswordFailure)
+    .catch(ui.changePasswordFailure)
 }
 
 // const onCreateSurvey = async function (event) {
