@@ -1,0 +1,22 @@
+{{#each surveys as |survey|}}
+{{log survey}}
+  <section class="survey-data" data-id="{{survey.id}}">
+
+    <h3 class="survey-title">
+      {{survey.title}}
+    </h3>
+
+<ul>
+  {{#each survey.options as |option|}}
+  <li data-option-id="{{option.id}}">
+
+    <h6 class="option-title">
+      {{option.name}}
+    </h6>
+
+</li>
+{{/each}}
+</ul>
+
+</section>
+{{/each}}
