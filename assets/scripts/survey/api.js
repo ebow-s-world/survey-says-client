@@ -3,9 +3,19 @@
 const config = require('../config')
 const store = require('../store')
 
-const indexSurvey = () => {
+const indexSurveys = () => {
   return $.ajax({
     url: config.apiUrl + '/surveys',
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
+const indexYourSurveys = () => {
+  return $.ajax({
+    url: config.apiUrl + '/my-surveys',
     method: 'GET',
     headers: {
       Authorization: 'Token token=' + store.user.token
@@ -57,7 +67,8 @@ const deleteOption = function (id) {
 
 module.exports = {
   createSurvey,
-  indexSurvey,
+  indexSurveys,
+  indexYourSurveys,
   deleteSurvey,
   createOption,
   deleteOption

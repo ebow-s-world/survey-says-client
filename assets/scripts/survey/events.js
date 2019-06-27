@@ -26,11 +26,10 @@ const onCreateSurvey = async function (event) {
   }
 }
 
-
-const onIndexSurvey = (event) => {
+const onIndexSurveys = (event) => {
   event.preventDefault()
 
-  api.indexSurvey()
+  api.indexSurveys()
     .then(ui.onIndexSurveySuccess)
     .catch(ui.onIndexSurveyFailure)
 }
@@ -38,12 +37,12 @@ const onIndexSurvey = (event) => {
 const onIndexYourSurveys = (event) => {
   event.preventDefault()
 
-  api.indexSurvey()
-    .then(ui.onIndexYourSurveysSuccess)
+  api.indexYourSurveys()
+    .then(ui.onIndexSurveysSuccess)
 }
 
 module.exports = {
   onCreateSurvey,
-  onIndexSurvey,
+  onIndexSurveys,
   onIndexYourSurveys
 }
