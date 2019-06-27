@@ -5,12 +5,12 @@ const createOption = require('./templates/create-option-field.handlebars')
 const signUpSuccess = function () {
   $('#log-message').show()
   $('#log-message').html('Sign up Success!')
-  $('#log-message').delay(2000).fadeOut()
+  $('#log-message').delay(2000).fadeOut('slow')
 }
 
 const signUpFailure = function () {
   $('#log-message').html('Sign up Failure!')
-  $('#log-message').delay(2000).fadeOut()
+  $('#log-message').delay(2000).fadeOut('slow')
 }
 
 const signInSuccess = function (data) {
@@ -23,19 +23,19 @@ const signInSuccess = function (data) {
 
 const signInFailure = function () {
   $('#log-message').html('Sign in Failed')
-  $('#log-message').delay(2000).fadeOut()
+  $('#log-message').delay(2000).fadeOut('slow')
 }
 
 const signOutSuccess = function () {
   $('#sign-in').show()
   $('#sign-up').show()
   $('#log-message').html('Signed Out!')
-  $('#log-message').delay(2000).fadeOut()
+  $('#log-message').delay(2000).fadeOut('slow')
 }
 
 const signOutFailure = function () {
   $('#log-message').html('Sign out Failed!')
-  $('#log-message').delay(2000).fadeOut()
+  $('#log-message').delay(2000).fadeOut('slow')
 }
 
 const onAddOption = function (event) {
