@@ -3,6 +3,7 @@
 const getFormFields = require('../../../lib/get-form-fields')
 const api = require('./api.js')
 const ui = require('./ui.js')
+const store = require('../store.js')
 
 const onCreateSurvey = async function (event) {
   event.preventDefault()
@@ -64,11 +65,18 @@ const onUpdateSurvey = async function (event) {
     if (elements[i].hasAttribute('data-optionId')) optionIds.push(elements[i].getAttribute('data-optionId'))
   }
   console.log(optionIds)
+  const optionsToDelete = store.mySurveys.find(surv => surv._id === $(event.target).data('id')).options.filter(option => {
+    return !optionIds.includes(option._id)
+  })
+
   try {
     await api.updateSurvey(surveyId, { survey: data.survey })
     for (let i = 0; i < optionIds.length; i++) {
       if (optionIds[i].length > 10) await api.updateOption(optionIds[i], {option: {name: data.options[i]}})
       else await api.createOption({option: {name: data.options[i], survey: surveyId}})
+    }
+    for (let i = 0; i < optionsToDelete.length; i++) {
+      await api.deleteOption(optionsToDelete[i])
     }
   } catch (err) {
     // ui.updateSurveyFailure
