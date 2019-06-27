@@ -3,6 +3,7 @@ const getFormFields = require(`../../lib/get-form-fields`)
 const store = require('./store')
 const ui = require('./ui')
 const surveyEvents = require('./survey/events')
+const responseEvents = require('./response/events')
 
 const onSignUp = function (event) {
   event.preventDefault()
@@ -71,6 +72,8 @@ const addHandlers = () => {
   ui.showCreateSurvey()
   $('#create-form').on('click', '#add-option', ui.onAddOption)
   $('#create-form').on('click', '.remove-option', ui.onRemoveOption)
+
+  $('.content').on('click', '.survey-submit', responseEvents.onCreateResponse)
 }
 
 module.exports = {
