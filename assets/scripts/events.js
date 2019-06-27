@@ -67,9 +67,9 @@ const addHandlers = () => {
   $('#index-survey').on('click', surveyEvents.onIndexSurveys)
   $('#index-yours').on('click', surveyEvents.onIndexYourSurveys)
 
-  store.optionCount = 0
-  $('#add-option').on('click', ui.onAddOption)
-  $('#extra-options').on('click', '#remove-option', ui.onRemoveOption)
+  ui.showCreateSurvey()
+  $('#create-form').on('click', '#add-option', ui.onAddOption)
+  $('#create-form').on('click', '.remove-option', ui.onRemoveOption)
 }
 
 module.exports = {
