@@ -30,19 +30,31 @@ const onIndexSurveys = (event) => {
   event.preventDefault()
 
   api.indexSurveys()
-    .then(ui.onIndexSurveySuccess)
-    .catch(ui.onIndexSurveyFailure)
+    .then(ui.onIndexSurveysSuccess)
+    .catch(ui.onIndexSurveysFailure)
 }
 
 const onIndexYourSurveys = (event) => {
   event.preventDefault()
 
   api.indexYourSurveys()
-    .then(ui.onIndexSurveysSuccess)
+    .then(ui.onIndexMySurveysSuccess)
+}
+
+const onDeleteSurvey = (event) => {
+  console.log('clicked!')
+  event.preventDefault()
+  const id = $(event.target).data('id')
+  console.log(id)
+
+  api.deleteSurvey(id)
+    .then(ui.onDeleteSuccess)
+    .catch(ui.onDeleteFailure)
 }
 
 module.exports = {
   onCreateSurvey,
   onIndexSurveys,
-  onIndexYourSurveys
+  onIndexYourSurveys,
+  onDeleteSurvey
 }

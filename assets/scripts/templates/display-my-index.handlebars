@@ -1,0 +1,27 @@
+{{#each surveys as |survey|}}
+{{log survey}}
+  <section class="survey-data" data-id="{{survey._id}}">
+    {{log survey._id}}
+    <h3 class="survey-title">
+      {{survey.title}}
+    </h3>
+
+<ul>
+  {{#each survey.options as |option|}}
+  <li data-option-id="{{option.id}}">
+    {{log option.id}}
+    <h6 class="option-title">
+      {{option.name}}
+    </h6>
+
+</li>
+{{/each}}
+</ul>
+
+
+<input type="submit" value="edit survey" class="btn btn-sm btn-outline-dark margin-top-5 bare-button">
+<button value="delete" data-id="{{survey._id}}" class="delete-survey btn btn-sm btn-outline-dark margin-top-5 bare-button">delete</button>
+<input type="submit" value="see responses" class="btn btn-sm btn-outline-dark margin-top-5 bare-button">
+
+</section>
+{{/each}}
