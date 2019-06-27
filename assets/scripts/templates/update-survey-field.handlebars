@@ -1,4 +1,5 @@
 <form id="update-survey" data-id={{survey._id}}>
+<<<<<<< HEAD
   <input type="text" name="survey[title]" maxlength="40" placeholer="Title" value="{{survey.title}}"><br>
   {{log survey}}
   <div id='options'>
@@ -6,6 +7,14 @@
     <div id='option-{{option._id}}'>
       <input type="text" name="options[]" maxlength="40" placeholder="Option Name" value="{{option.name}}">
       <button type='button' data-optionid='{{option._id}}' class='btn btn-danger remove-option'>-</button><br>
+=======
+  <input type="text" name="survey[title]" maxlength="40" placeholder="Title" text="{{survey.title}}"><br>
+  <div id='options'>
+    {{#each survey.options |option|}}
+    <div id='option-{{option._id}}'>
+      <input type="text" name="options[]" maxlength="40" placeholder="Option Name" text="{{option.name}}">
+      <button type='button' data-optionId='{{option._id}}' class='btn btn-danger remove-option'>-</button><br>
+>>>>>>> Add handlebars and events for updateSurvey
     </div>
     {{/each}}
   </div>
