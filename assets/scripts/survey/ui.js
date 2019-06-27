@@ -12,7 +12,7 @@ const onCreateSurveySuccess = responseData => {
   // setTimeout(() => $('#message').text(''), 4000)
 }
 
-const onIndexSurveySuccess = responseData => {
+const onIndexSurveysSuccess = responseData => {
   // $('#content').html(showSurveyTemplate({survey: responseData.survey}))
   console.log(responseData)
   $('.content').html(indexDisplay({ surveys: responseData.survey }))
@@ -35,6 +35,6 @@ const onIndexYourSurveysSuccess = responseData => {
 
 module.exports = {
   onCreateSurveySuccess,
-  onIndexSurveySuccess,
+  onIndexSurveysSuccess,
   onIndexYourSurveysSuccess
 }
