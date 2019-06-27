@@ -1,22 +1,12 @@
 {{#each surveys as |survey|}}
 {{log survey}}
-  <section class="survey-data" data-id="{{survey.id}}">
-
-    <h3 class="survey-title">
-      {{survey.title}}
-    </h3>
-
-<ul>
-  {{#each survey.options as |option|}}
-  <li data-option-id="{{option.id}}">
-
-    <h6 class="option-title">
-      {{option.name}}
-    </h6>
-
-</li>
-{{/each}}
-</ul>
-
+  <section class="take-survey">
+    <h3 class="survey-title">{{survey.title}}</h3>
+  <form class="survey-form" data-id="{{survey._id}}">
+    {{#each survey.options as |option|}}
+      <input data-id="{{option.id}}" name="response[answer]" type="radio" class="option-title" value="{{option.name}}">{{option.name}}</input>
+  {{/each}}
+  <input type=submit class="survey-submit">
+</form>
 </section>
 {{/each}}
