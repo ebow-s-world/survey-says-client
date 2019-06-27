@@ -1,6 +1,6 @@
 'use strict'
 
-// const store = require('../store')
+const store = require('../store')
 const indexDisplay = require('../templates/index-surveys.handlebars')
 const indexDisplayMy = require('../templates/display-my-index.handlebars')
 
@@ -25,10 +25,16 @@ const onIndexSurveysSuccess = responseData => {
 const onIndexMySurveysSuccess = responseData => {
   // $('#content').html(showSurveyTemplate({survey: responseData.survey}))
   console.log(responseData)
+  store.mySurveys = responseData.survey
   $('.content').html(indexDisplayMy({ surveys: responseData.survey }))
   $('form').trigger('reset')
   // $('#message').text('created successfully!')
   // setTimeout(() => $('#message').text(''), 4000)
+}
+
+const onShowSurveyUpdate = event => {
+  const survey = store.mySurveys.find(surv => surv._id === $(event.target).data('id'))
+  console.log(survey)
 }
 
 // const onIndexYourSurveysSuccess = responseData => {
@@ -51,5 +57,6 @@ module.exports = {
   onCreateSurveySuccess,
   onIndexSurveysSuccess,
   onIndexMySurveysSuccess,
+  onShowSurveyUpdate,
   onDeleteSuccess
 }

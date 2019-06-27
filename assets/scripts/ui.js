@@ -62,7 +62,7 @@ const onAddOption = function (event) {
 
 const onRemoveOption = function (event) {
   event.stopPropagation()
-  const id = $(event.target).data('id')
+  const id = $(event.target).data('optionId')
   $(`#option-${id}`).remove()
   store.optionCount--
   updateAddRemove()

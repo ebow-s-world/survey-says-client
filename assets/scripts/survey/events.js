@@ -53,9 +53,31 @@ const onDeleteSurvey = (event) => {
     .catch(ui.onDeleteFailure)
 }
 
+const onUpdateSurvey = async function (event) {
+  event.preventDefault()
+  const data = getFormFields(event.target)
+  const surveyId = $(event.target).data('id')
+  const optionIds = []
+  event.target.elements.forEach(element => {
+    if (element.hasAttribute('optionId')) optionIds.push(element.getAttribute('optionId'))
+  })
+  console.log(optionIds)
+  try {
+    await api.updateSurvey(surveyId, { survey: data.survey })
+    for (let i = 0; i < optionIds.length; i++) {
+      if (typeof optionIds[i] === 'string') await api.updateOption(optionIds[i], {option: {name: data.options[i]}})
+      else await api.createOption({option: {name: data.options[i], survey: surveyId}})
+    }
+  } catch (err) {
+    // ui.updateSurveyFailure
+    throw err
+  }
+}
+
 module.exports = {
   onCreateSurvey,
   onIndexSurveys,
   onIndexYourSurveys,
-  onDeleteSurvey
+  onDeleteSurvey,
+  onUpdateSurvey
 }

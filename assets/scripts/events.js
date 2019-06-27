@@ -4,6 +4,7 @@ const store = require('./store')
 const ui = require('./ui')
 const surveyEvents = require('./survey/events')
 const responseEvents = require('./response/events')
+const surveyUi = require('./survey/ui')
 
 const onSignUp = function (event) {
   event.preventDefault()
@@ -68,6 +69,7 @@ const addHandlers = () => {
   $('#index-survey').on('click', surveyEvents.onIndexSurveys)
   $('#index-yours').on('click', surveyEvents.onIndexYourSurveys)
   $('.content').on('click', '.delete-survey', surveyEvents.onDeleteSurvey)
+  $('.content').on('click', '.show-update-survey', surveyUi.onShowSurveyUpdate)
 
   ui.showCreateSurvey()
   $('#create-form').on('click', '#add-option', ui.onAddOption)
