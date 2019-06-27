@@ -6,11 +6,13 @@ const signUpSuccess = function () {
   $('#log-message').show()
   $('#log-message').html('Sign up Success!')
   $('#log-message').delay(2000).fadeOut('slow')
+  $('form').trigger('reset')
 }
 
 const signUpFailure = function () {
   $('#log-message').html('Sign up Failure!')
   $('#log-message').delay(2000).fadeOut('slow')
+  $('form').trigger('reset')
 }
 
 const signInSuccess = function (data) {
@@ -19,16 +21,19 @@ const signInSuccess = function (data) {
   $('#sign-in').hide()
   $('#sign-up').hide()
   $('#surveys').show()
+  $('form').trigger('reset')
 }
 
 const signInFailure = function () {
   $('#log-message').html('Sign in Failed')
   $('#log-message').delay(2000).fadeOut('slow')
+  $('form').trigger('reset')
 }
 
 const signOutSuccess = function () {
   $('#sign-in').show()
   $('#sign-up').show()
+  $('#log-message').show()
   $('#log-message').html('Signed Out!')
   $('#log-message').delay(2000).fadeOut('slow')
 }
