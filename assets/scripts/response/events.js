@@ -3,6 +3,7 @@
 const getFormFields = require('../../../lib/get-form-fields')
 const api = require('./api.js')
 const ui = require('./ui.js')
+const surveyEvent = require('../survey/events.js')
 
 const onCreateResponse = function (event) {
   event.preventDefault()
@@ -14,6 +15,9 @@ const onCreateResponse = function (event) {
 
   api.createResponse(responseData)
     .then(console.log)
+    .then((res) => {
+      surveyEvent.onIndexSurveys(event)
+    })
     .catch(console.error)
 }
 
