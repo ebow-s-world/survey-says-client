@@ -18,6 +18,8 @@ const onCreateResponse = function (event) {
     .then((res) => {
       surveyEvent.onIndexSurveys(event)
     })
+
+    .catch($(`.messaging-${surveyId}`).html('pick something!'))
     .catch(console.error)
 }
 
