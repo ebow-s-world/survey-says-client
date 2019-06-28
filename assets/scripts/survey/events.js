@@ -4,6 +4,7 @@ const getFormFields = require('../../../lib/get-form-fields')
 const api = require('./api.js')
 const ui = require('./ui.js')
 const store = require('../store.js')
+const indexDisplay = require('../templates/index-surveys.handlebars')
 
 const onCreateSurvey = async function (event) {
   event.preventDefault()
@@ -31,7 +32,24 @@ const onIndexSurveys = (event) => {
   api.indexSurveys()
     .then(ui.onIndexSurveysSuccess)
     .catch(ui.onIndexSurveysFailure)
-    .catch(ui.onIndexSurveyFailure)
+}
+
+const onIndexAfterSubmit = (event) => {
+  event.preventDefault()
+  const surveyId = $(event.target.parentElement).data('id')
+  const resultsHidden = $(`#results-${surveyId}`).hasClass('disable')
+  const doHide = () => {
+    if (resultsHidden) {
+      console.log(resultsHidden)
+    } else {
+      $(`#results-${surveyId}`).toggle()
+    }
+  }
+
+  api.indexSurveys()
+    .then((responseData) => $('.content').html(indexDisplay({ surveys: responseData.survey })))
+    .then(() => $(`.messaging-${surveyId}`).html('thanks for submitting!'))
+    .then(doHide)
 }
 
 const onIndexYourSurveys = (event) => {
@@ -91,5 +109,6 @@ module.exports = {
   onIndexYourSurveys,
   onDeleteSurvey,
   onGetResults,
-  onUpdateSurvey
+  onUpdateSurvey,
+  onIndexAfterSubmit
 }
