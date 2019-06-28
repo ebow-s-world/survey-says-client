@@ -15,11 +15,23 @@
 </li>
 {{/each}}
 </ul>
+<div id="results-{{survey._id}}" class="disable">
+  <h3>Results</h3>
+  <ul>
+    {{#each survey.options as |option|}}
+    <li data-option-id="{{option.id}}">
+      <h6 class="option-results">
+        {{option.name}}: {{option.count}}
+      </h6>
+    </li>
+    {{/each}}
+  </ul>
+</div>
 
 
 <button data-id="{{survey._id}}" class="show-update-survey btn btn-sm btn-outline-dark margin-top-5 bare-button">edit survey</button>
 <button value="delete" data-id="{{survey._id}}" class="delete-survey btn btn-sm btn-outline-dark margin-top-5 bare-button">delete</button>
-<input type="submit" value="see responses" class="btn btn-sm btn-outline-dark margin-top-5 bare-button">
+<input type="submit" value="see responses" class="results-button btn btn-sm btn-outline-dark margin-top-5 bare-button">
 
 </section>
 {{/each}}
