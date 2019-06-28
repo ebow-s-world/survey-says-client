@@ -62,13 +62,13 @@ const onUpdateSurvey = async function (event) {
   console.log(event.target.elements)
   const elements = event.target.elements
   for (let i = 0; i < elements.length; i++) {
-    if (elements[i].hasAttribute('data-optionId')) optionIds.push(elements[i].getAttribute('data-optionId'))
+    if (elements[i].hasAttribute('data-optionid')) optionIds.push(elements[i].getAttribute('data-optionid'))
   }
   console.log(optionIds)
   const optionsToDelete = store.mySurveys.find(surv => surv._id === $(event.target).data('id')).options.filter(option => {
     return !optionIds.includes(option._id)
   })
-
+  console.log(optionsToDelete)
   try {
     await api.updateSurvey(surveyId, { survey: data.survey })
     for (let i = 0; i < optionIds.length; i++) {
@@ -76,7 +76,7 @@ const onUpdateSurvey = async function (event) {
       else await api.createOption({option: {name: data.options[i], survey: surveyId}})
     }
     for (let i = 0; i < optionsToDelete.length; i++) {
-      await api.deleteOption(optionsToDelete[i])
+      await api.deleteOption(optionsToDelete[i]._id)
     }
   } catch (err) {
     // ui.updateSurveyFailure

@@ -18,7 +18,7 @@ const onCreateSurveySuccess = responseData => {
 
 const onIndexSurveysSuccess = responseData => {
   // $('#content').html(showSurveyTemplate({survey: responseData.survey}))
-  console.log(responseData)
+  // console.log(responseData)
   $('.content').html(indexDisplay({ surveys: responseData.survey }))
   $('form').trigger('reset')
   // $('#message').text('created successfully!')
@@ -27,7 +27,7 @@ const onIndexSurveysSuccess = responseData => {
 
 const onIndexMySurveysSuccess = responseData => {
   // $('#content').html(showSurveyTemplate({survey: responseData.survey}))
-  console.log(responseData)
+  // console.log(responseData)
   store.mySurveys = responseData.survey
   $('.content').html(indexDisplayMy({ surveys: responseData.survey }))
   $('form').trigger('reset')
@@ -57,7 +57,7 @@ const onAddOption = function (event) {
 
 const onRemoveOption = function (event) {
   event.stopPropagation()
-  const id = $(event.target).data('optionId')
+  const id = $(event.target).data('optionid')
   $(`#option-${id}`).remove()
   store.optionCount--
   updateAddRemove()
@@ -74,7 +74,6 @@ const updateAddRemove = function () {
 
 const onShowSurveyUpdate = event => {
   const survey = store.mySurveys.find(surv => surv._id === $(event.target).data('id'))
-  console.log(survey)
   store.optionId = 0
   store.optionCount = survey.options.length
   $('#create-form').html(updateSurveyForm({ survey: survey }))
