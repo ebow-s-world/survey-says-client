@@ -11,10 +11,11 @@
   </head>
   <body>
     <nav id="top-nav">
-      <div class="app-name">Survey Says</div>
+      <!-- <div class="app-name">Survey Says</div> -->
+      <a href="#" class="navbar-left"><img src="/survey-says.png"></a>
       <div class="nav-buttons">
         <div class="dropdown">
-          <button class="btn btn-success sign-in disable dropdown-toggle disappear" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <button class="btn btn-light sign-in disable dropdown-toggle disappear" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Account
           </button>
           <div class="dropdown-menu">
@@ -26,11 +27,11 @@
             <input type="password" name="passwords[new]" placeholder="New Password" class="log-field">
           </div>
           <div>
-            <input type="submit" value="Change Password" class="btn btn-success btn-block">
+            <input type="submit" value="Change Password" class="btn btn-info btn-block">
           </div>
           </form>
           <form id="sign-out" class="dropdown-item">
-            <input type="submit" value="Sign out" class="btn btn-success btn-block kill-dropdown">
+            <input type="submit" value="Sign out" class="btn btn-info btn-block kill-dropdown">
           </form>
             <div class="dropdown-footer">
               <p class="dropdown-item change-password-message"></p>
@@ -53,13 +54,13 @@
           <input class="log-field" type="text" name="credentials[email]" maxlength="40" placeholder="Email">
           <input class="log-field" type="password" name="credentials[password]" maxlength="40" placeholder="Password">
           <input class="log-field" type="password" name="credentials[password_confirmation]" maxlength="40" placeholder="Confirm Password">
-          <br><input type="submit" value="Sign up" class="btn btn-success">
+          <br><input type="submit" value="Sign up" class="btn btn-info">
       </form>
       <form id="sign-in">
         <h3 class="initLog-headers">Sign in</h3>
           <input class="log-field" type="text" name="credentials[email]" maxlength="40" placeholder="Email">
           <input class="log-field" type="password" name="credentials[password]" maxlength="40" placeholder="Password">
-          <br><input type="submit" value="Sign in" class="btn btn-success">
+          <br><input type="submit" value="Sign in" class="btn btn-info">
       </form>
     </div>
     <div id='create-form'>
