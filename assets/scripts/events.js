@@ -77,6 +77,7 @@ const addHandlers = () => {
   $('#create-form').on('click', '.remove-option', surveyUi.onRemoveOption)
 
   $('.content').on('click', '.survey-submit', responseEvents.onCreateResponse)
+  $('.content').on('click', '.results-button', surveyEvents.onGetResults)
 }
 
 module.exports = {

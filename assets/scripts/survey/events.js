@@ -78,6 +78,13 @@ const onUpdateSurvey = async function (event) {
     // ui.updateSurveyFailure
     throw err
   }
+
+  const onGetResults = (event) => {
+  event.preventDefault()
+  const surveyId = $(event.target.parentElement).data('id')
+  console.log('surveyId is', surveyId)
+  console.log($(`#survey-${surveyId}`).html())
+  $(`#results-${surveyId}`).toggleClass('disable')
 }
 
 module.exports = {
@@ -85,5 +92,7 @@ module.exports = {
   onIndexSurveys,
   onIndexYourSurveys,
   onDeleteSurvey,
+  onGetResults
   onUpdateSurvey
+
 }
