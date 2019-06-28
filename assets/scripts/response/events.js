@@ -13,8 +13,9 @@ const onCreateResponse = function (event) {
 
   api.createResponse(responseData)
     .then((res) => {
-      surveyEvent.onIndexSurveys(event)
+      surveyEvent.onIndexAfterSubmit(event)
     })
+    // .then(() => $(`.messaging-${surveyId}`).html('thanks for submitting!'))
 
     .catch($(`.messaging-${surveyId}`).html('pick something!'))
     .catch(console.error)
