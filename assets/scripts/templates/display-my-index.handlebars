@@ -1,6 +1,7 @@
 {{#each surveys as |survey|}}
 {{log survey}}
   <section class="survey-data" data-id="{{survey._id}}">
+    <div class="messaging"></div>
     {{log survey._id}}
     <h3 class="survey-title">
       {{survey.title}}

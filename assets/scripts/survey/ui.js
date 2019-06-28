@@ -7,14 +7,15 @@ const updateSurveyForm = require('../templates/update-survey-field.handlebars')
 const createSurvey = require('../templates/create-survey-field.handlebars')
 const createOption = require('../templates/create-option-field.handlebars')
 
-const onCreateSurveySuccess = responseData => {
-  // $('#content').html(showSurveyTemplate({survey: responseData.survey}))
-  // console.log(responseData)
-  $('.content').text(responseData.survey.title)
-  $('form').trigger('reset')
-  // $('#message').text('created successfully!')
-  // setTimeout(() => $('#message').text(''), 4000)
-}
+// const onCreateSurveySuccess = responseData => {
+//   // $('#content').html(showSurveyTemplate({survey: responseData.survey}))
+//   // console.log(responseData)
+//   $('.content').text(responseData.survey.title)
+//   $('form').trigger('reset')
+//   $('.content').text('new survey success!')
+//   // $('#message').text('created successfully!')
+//   // setTimeout(() => $('#message').text(''), 4000)
+// }
 
 const onIndexSurveysSuccess = responseData => {
   // $('#content').html(showSurveyTemplate({survey: responseData.survey}))
@@ -79,7 +80,7 @@ const onShowSurveyUpdate = event => {
 }
 
 module.exports = {
-  onCreateSurveySuccess,
+  // onCreateSurveySuccess,
   onIndexSurveysSuccess,
   onIndexMySurveysSuccess,
   onShowSurveyUpdate,

@@ -13,6 +13,7 @@ const onCreateSurvey = async function (event) {
   try {
     newSurvey = await api.createSurvey({ survey: data.survey })
     console.log(newSurvey.survey._id)
+    $('.content').text('created!')
     for (let i = 0; i < data.options.length; i++) {
       newOptions[i] = await api.createOption({option: {name: data.options[i], survey: newSurvey.survey._id}})
     }
@@ -78,6 +79,8 @@ const onUpdateSurvey = async function (event) {
     // ui.updateSurveyFailure
     throw err
   }
+  $('.content').text('updated!')
+  $('#update-survey').addClass('disable')
 }
 
 const onGetResults = (event) => {
