@@ -64,8 +64,6 @@ API Paths & Methods
 | Method   | URL
 |--------|------------------------
 | POST   | `/options`
-| GET    | `/options`
-| GET    | `/options/:id`
 | PATCH  | `/options/:id`
 | DELETE | `/options/:id`
 
