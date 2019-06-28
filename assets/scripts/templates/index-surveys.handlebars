@@ -7,6 +7,21 @@
       <input data-id="{{option.id}}" name="response[answer]" type="radio" class="option-title" value="{{option.name}}">{{option.name}}</input>
   {{/each}}
   <input type=submit class="survey-submit">
+  <button class="results-button">Results</button>
 </form>
+<div id="results-{{survey._id}}" class="disable">
+  <h3>Results</h3>
+  <ul>
+    {{#each survey.options as |option|}}
+    <li data-option-id="{{option.id}}">
+      {{log option.id}}
+      <h6 class="option-results">
+        {{option.name}}: {{option.count}}
+      </h6>
+
+    </li>
+    {{/each}}
+  </ul>
+</div>
 </section>
 {{/each}}

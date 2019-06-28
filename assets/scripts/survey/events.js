@@ -53,9 +53,18 @@ const onDeleteSurvey = (event) => {
     .catch(ui.onDeleteFailure)
 }
 
+const onGetResults = (event) => {
+  event.preventDefault()
+  const surveyId = $(event.target.parentElement).data('id')
+  console.log('surveyId is', surveyId)
+  console.log($(`#survey-${surveyId}`).html())
+  $(`#results-${surveyId}`).toggleClass('disable')
+}
+
 module.exports = {
   onCreateSurvey,
   onIndexSurveys,
   onIndexYourSurveys,
-  onDeleteSurvey
+  onDeleteSurvey,
+  onGetResults
 }
