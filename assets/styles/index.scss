@@ -1,1 +1,39 @@
 @import '~bootstrap/scss/bootstrap';
+@import 'theme';
+
+#top-nav {
+  height: fixed;
+  @extend .navbar;
+  @extend .navbar-dark;
+  @extend .bg-dark;
+  @extend .fixed-top;
+
+  .app-name {
+    @extend .navbar-brand;
+    @extend .h1;
+    margin-bottom: 0;
+    font-family: 'Montserrat Alternates', sans-serif;
+  }
+}
+
+.log-before-nav2 {
+  margin-top: 70px;
+}
+
+
+.nav2 {
+  margin-top: 70px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.disable {
+  display: none;
+}
+
+
+
+
+body {
+  margin: 0 20px;
+}
