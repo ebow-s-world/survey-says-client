@@ -24,6 +24,7 @@ const onCreateSurvey = async function (event) {
     }
     throw err
   }
+  $('#create-form').empty()
 }
 
 const onIndexSurveys = (event) => {

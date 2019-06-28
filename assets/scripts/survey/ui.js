@@ -20,7 +20,11 @@ const createOption = require('../templates/create-option-field.handlebars')
 const onIndexSurveysSuccess = responseData => {
   // $('#content').html(showSurveyTemplate({survey: responseData.survey}))
   // console.log(responseData)
-  $('.content').html(indexDisplay({ surveys: responseData.survey }))
+  if (responseData.survey.length === 0) {
+    $('.content').html('no surveys to display')
+  } else {
+    $('.content').html(indexDisplay({ surveys: responseData.survey }))
+  }
   $('form').trigger('reset')
   $('#create-form').empty()
   // $('#message').text('created successfully!')
@@ -31,7 +35,11 @@ const onIndexMySurveysSuccess = responseData => {
   // $('#content').html(showSurveyTemplate({survey: responseData.survey}))
   // console.log(responseData)
   store.mySurveys = responseData.survey
-  $('.content').html(indexDisplayMy({ surveys: responseData.survey }))
+  if (store.mySurveys.length === 0) {
+    $('.content').html('no surveys to display')
+  } else {
+    $('.content').html(indexDisplayMy({ surveys: responseData.survey }))
+  }
   $('form').trigger('reset')
   $('#create-form').empty()
   // $('#message').text('created successfully!')
