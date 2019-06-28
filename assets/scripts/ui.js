@@ -21,6 +21,11 @@ const signInSuccess = function (data) {
   $('#sign-up').hide()
   $('#surveys').show()
   $('form').trigger('reset')
+  $('.content').removeClass('disable')
+  $('.nav2').removeClass('disable')
+  $('.log').removeClass('log-before-nav2')
+  $('#log-message').html('Signed In Successfully!')
+  $('#log-message').delay(1000).fadeOut('slow')
 }
 
 const signInFailure = function () {
@@ -35,6 +40,7 @@ const signOutSuccess = function () {
   $('#log-message').show()
   $('#log-message').html('Signed Out!')
   $('#log-message').delay(2000).fadeOut('slow')
+  $('.content').html('')
 }
 
 const signOutFailure = function () {

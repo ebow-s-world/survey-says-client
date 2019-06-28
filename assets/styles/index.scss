@@ -15,21 +15,19 @@
   }
 }
 
-.log {
-  // justify-content: center;
-  // margin: 0 auto;
-  margin-top: 10px;
-  // width: 33%;
+.log-before-nav2 {
+  margin-top: 70px;
+}
+
+
+.nav2 {
+  margin-top: 70px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .disable {
   display: none;
-}
-
-#nav2 {
-  margin-top: 70px;
-  display: flex;
-  justify-content: space-between;
 }
 
 body {
