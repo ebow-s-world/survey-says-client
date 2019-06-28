@@ -34,6 +34,7 @@ const onChangePassword = function (event) {
   const data = getFormFields(this)
   api.changePassword(data)
     .then(() => console.log(store.user))
+    .then(ui.changePasswordSuccess)
     .catch(ui.changePasswordFailure)
 }
 
@@ -78,6 +79,7 @@ const addHandlers = () => {
 
   $('.content').on('click', '.survey-submit', responseEvents.onCreateResponse)
   $('.content').on('click', '.results-button', surveyEvents.onGetResults)
+  $('.kill-dropdown').click(() => $('#dropdownMenu2').dropdown('toggle'))
 }
 
 module.exports = {
