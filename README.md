@@ -55,7 +55,7 @@ API Paths & Methods
 |--------|------------------------
 | POST   | `/surveys`
 | GET    | `/surveys`
-| GET    | `/surveys/:id`
+| GET    | `/my-surveys`
 | PATCH  | `/surveys/:id`
 | DELETE | `/surveys/:id`
 
@@ -64,8 +64,6 @@ API Paths & Methods
 | Method   | URL
 |--------|------------------------
 | POST   | `/options`
-| GET    | `/options`
-| GET    | `/options/:id`
 | PATCH  | `/options/:id`
 | DELETE | `/options/:id`
 
@@ -107,7 +105,7 @@ Plans for Future Improvements
 
 Team
 ------
-* [Cory Anders](https://git.generalassemb.ly/cande04)
+* [Cory Anders](https://github.com/cande04)
 * [Thomas O'Hearne](https://github.com/tohearne)
 * [Greg Thomas](https://github.com/agregthomas)
 * [Eric Bowman](https://github.com/ericjbowman)
