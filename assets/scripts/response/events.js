@@ -12,7 +12,6 @@ const onCreateResponse = function (event) {
   const responseData = { response: { answer: optionId } }
 
   api.createResponse(responseData)
-    .then()
     .then((res) => {
       surveyEvent.onIndexSurveys(event)
     })
