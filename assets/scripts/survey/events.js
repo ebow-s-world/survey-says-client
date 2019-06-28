@@ -47,7 +47,6 @@ const onDeleteSurvey = (event) => {
   console.log('clicked!')
   event.preventDefault()
   const id = $(event.target).data('id')
-  console.log(id)
 
   api.deleteSurvey(id)
     .then(ui.onDeleteSuccess)
@@ -59,16 +58,13 @@ const onUpdateSurvey = async function (event) {
   const data = getFormFields(event.target)
   const surveyId = $(event.target).data('id')
   const optionIds = []
-  console.log(event.target.elements)
   const elements = event.target.elements
   for (let i = 0; i < elements.length; i++) {
     if (elements[i].hasAttribute('data-optionid')) optionIds.push(elements[i].getAttribute('data-optionid'))
   }
-  console.log(optionIds)
   const optionsToDelete = store.mySurveys.find(surv => surv._id === $(event.target).data('id')).options.filter(option => {
     return !optionIds.includes(option._id)
   })
-  console.log(optionsToDelete)
   try {
     await api.updateSurvey(surveyId, { survey: data.survey })
     for (let i = 0; i < optionIds.length; i++) {
