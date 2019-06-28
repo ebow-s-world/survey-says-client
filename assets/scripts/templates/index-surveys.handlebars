@@ -1,5 +1,4 @@
 {{#each surveys as |survey|}}
-{{log survey}}
   <section class="take-survey col-6">
     <h3 class="survey-title">{{survey.title}}</h3>
   <form class="survey-form" data-id="{{survey._id}}">
@@ -15,7 +14,6 @@
   <ul>
     {{#each survey.options as |option|}}
     <li data-option-id="{{option.id}}">
-      {{log option.id}}
       <h6 class="option-results">
         {{option.name}}: {{option.count}}
       </h6>
