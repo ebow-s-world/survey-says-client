@@ -22,6 +22,7 @@ const onIndexSurveysSuccess = responseData => {
   // console.log(responseData)
   $('.content').html(indexDisplay({ surveys: responseData.survey }))
   $('form').trigger('reset')
+  $('#create-form').empty()
   // $('#message').text('created successfully!')
   // setTimeout(() => $('#message').text(''), 4000)
 }
@@ -32,6 +33,7 @@ const onIndexMySurveysSuccess = responseData => {
   store.mySurveys = responseData.survey
   $('.content').html(indexDisplayMy({ surveys: responseData.survey }))
   $('form').trigger('reset')
+  $('#create-form').empty()
   // $('#message').text('created successfully!')
   // setTimeout(() => $('#message').text(''), 4000)
 }
@@ -45,6 +47,7 @@ const showCreateSurvey = function (event) {
   store.optionCount = 2
   $('#create-form').html(createSurvey())
   updateAddRemove()
+  $('.content').empty()
 }
 
 const onAddOption = function (event) {
