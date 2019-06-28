@@ -18,10 +18,20 @@
 .log {
   // justify-content: center;
   // margin: 0 auto;
-  margin-top: 70px;
+  margin-top: 10px;
   // width: 33%;
 }
 
 .disable {
   display: none;
+}
+
+#nav2 {
+  margin-top: 70px;
+  display: flex;
+  justify-content: space-between;
+}
+
+body {
+  margin: 0 20px;
 }
