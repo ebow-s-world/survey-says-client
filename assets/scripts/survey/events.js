@@ -13,18 +13,15 @@ const onCreateSurvey = async function (event) {
   const newOptions = []
   try {
     newSurvey = await api.createSurvey({ survey: data.survey })
-    // console.log(newSurvey.survey._id)
     $('.content').text('created!')
     for (let i = 0; i < data.options.length; i++) {
       newOptions[i] = await api.createOption({option: {name: data.options[i], survey: newSurvey.survey._id}})
     }
   } catch (err) {
-    // console.log(newOptions)
     if (newSurvey) {
       api.deleteSurvey(newSurvey.survey.id)
       newOptions.forEach(option => api.deleteOption(option.option._id))
     }
-    // ui.createSurveyFailure
     throw err
   }
 }
@@ -91,8 +88,8 @@ const onUpdateSurvey = async function (event) {
     for (let i = 0; i < optionsToDelete.length; i++) {
       await api.deleteOption(optionsToDelete[i]._id)
     }
+    onIndexYourSurveys(event)
   } catch (err) {
-    // ui.updateSurveyFailure
     throw err
   }
   $('.content').text('updated!')
@@ -102,8 +99,6 @@ const onUpdateSurvey = async function (event) {
 const onGetResults = (event) => {
   event.preventDefault()
   const surveyId = $(event.target.parentElement).data('id')
-  // console.log('surveyId is', surveyId)
-  // console.log($(`#survey-${surveyId}`).html())
   $(`#results-${surveyId}`).toggleClass('disable')
 }
 
