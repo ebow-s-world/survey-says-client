@@ -1,8 +1,6 @@
 'use strict'
 
-const getFormFields = require('../../../lib/get-form-fields')
 const api = require('./api.js')
-const ui = require('./ui.js')
 const surveyEvent = require('../survey/events.js')
 
 const onCreateResponse = function (event) {
@@ -14,7 +12,7 @@ const onCreateResponse = function (event) {
   const responseData = { response: { answer: optionId } }
 
   api.createResponse(responseData)
-    .then(console.log)
+    .then()
     .then((res) => {
       surveyEvent.onIndexSurveys(event)
     })

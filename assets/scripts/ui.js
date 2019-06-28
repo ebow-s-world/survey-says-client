@@ -46,7 +46,8 @@ const signOutSuccess = function () {
   $('#log-message').html('Signed Out!')
   $('#log-message').show()
   $('#log-message').delay(2000).fadeOut('slow')
-  $('.content').html('')
+  $('.content').empty()
+  $('#create-form').empty()
 }
 
 const signOutFailure = function () {

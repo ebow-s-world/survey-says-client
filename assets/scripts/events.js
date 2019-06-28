@@ -1,6 +1,5 @@
 const api = require('./api')
 const getFormFields = require(`../../lib/get-form-fields`)
-const store = require('./store')
 const ui = require('./ui')
 const surveyEvents = require('./survey/events')
 const responseEvents = require('./response/events')
@@ -33,32 +32,9 @@ const onChangePassword = function (event) {
   event.preventDefault()
   const data = getFormFields(this)
   api.changePassword(data)
-    .then(() => console.log(store.user))
     .then(ui.changePasswordSuccess)
     .catch(ui.changePasswordFailure)
 }
-
-// const onCreateSurvey = async function (event) {
-//   event.preventDefault()
-//   const data = getFormFields(event.target)
-//   let newSurvey
-//   const newOptions = []
-//   try {
-//     newSurvey = await api.createSurvey({ survey: data.survey })
-//     console.log(newSurvey.survey._id)
-//     for (let i = 0; i < data.options.length; i++) {
-//       newOptions[i] = await api.createOption({option: {name: data.options[i], survey: newSurvey.survey._id}})
-//     }
-//   } catch (err) {
-//     console.log(newOptions)
-//     if (newSurvey) {
-//       api.deleteSurvey(newSurvey.survey.id)
-//       newOptions.forEach(option => api.deleteOption(option.option._id))
-//     }
-//     // ui.createSurveyFailure
-//     throw err
-//   }
-// }
 
 const addHandlers = () => {
   $('#sign-up').on('submit', onSignUp)
