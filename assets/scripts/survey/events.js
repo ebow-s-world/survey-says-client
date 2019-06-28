@@ -31,11 +31,8 @@ const onIndexSurveys = (event) => {
 
   api.indexSurveys()
     .then(ui.onIndexSurveysSuccess)
-<<<<<<< HEAD
     .catch(ui.onIndexSurveysFailure)
-=======
     .catch(ui.onIndexSurveyFailure)
->>>>>>> Add response create
 }
 
 const onIndexYourSurveys = (event) => {
