@@ -40,11 +40,9 @@ const onDeleteSuccess = () => {
 }
 
 const showCreateSurvey = function (event) {
-  store.optionId = 0
+  store.optionId = 2
   store.optionCount = 2
-  $('#create-form').append(createSurvey())
-  $('#options').append(createOption({ id: store.optionId++ }))
-  $('#options').append(createOption({ id: store.optionId++ }))
+  $('#create-form').html(createSurvey())
   updateAddRemove()
 }
 
@@ -64,11 +62,11 @@ const onRemoveOption = function (event) {
 }
 
 const updateAddRemove = function () {
-  if (store.optionCount < 3) $('.remove-option').addClass('disable')
-  else if (store.optionCount > 9) $('#add-option').addClass('disable')
+  if (store.optionCount < 3) $('.remove-option').hide()
+  else if (store.optionCount > 9) $('#add-option').hide()
   else {
-    $('.remove-option').removeClass('disable')
-    $('#add-option').removeClass('disable')
+    $('.remove-option').show()
+    $('#add-option').show()
   }
 }
 

@@ -21,6 +21,10 @@ const signInSuccess = function (data) {
   $('#sign-up').hide()
   $('#surveys').show()
   $('form').trigger('reset')
+  $('.sign-in').removeClass('disable')
+  $('.log').removeClass('log-before-nav2')
+  $('#log-message').html('Signed In Successfully!')
+  $('#log-message').delay(1000).fadeOut('slow')
 }
 
 const signInFailure = function () {
@@ -31,10 +35,13 @@ const signInFailure = function () {
 
 const signOutSuccess = function () {
   $('#sign-in').show()
+  $('.sign-in').addClass('disable')
+  $('.log').addClass('log-before-nav2')
   $('#sign-up').show()
   $('#log-message').show()
   $('#log-message').html('Signed Out!')
   $('#log-message').delay(2000).fadeOut('slow')
+  $('.content').html('')
 }
 
 const signOutFailure = function () {

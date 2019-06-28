@@ -72,7 +72,7 @@ const addHandlers = () => {
   $('.content').on('click', '.show-update-survey', surveyUi.onShowSurveyUpdate)
   $('#create-form').on('submit', '#update-survey', surveyEvents.onUpdateSurvey)
 
-  surveyUi.showCreateSurvey()
+  $('#show-create-survey').on('click', surveyUi.showCreateSurvey)
   $('#create-form').on('click', '#add-option', surveyUi.onAddOption)
   $('#create-form').on('click', '.remove-option', surveyUi.onRemoveOption)
 
