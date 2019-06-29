@@ -69,3 +69,26 @@ button, .btn {
   background-color: black;
   border: 1px solid;
 }
+
+.survey-data {
+  margin-top: 20px;
+  height: 405px;
+  width: 641px;
+  background-image: url("OldschoolSurvey2.jpg");
+}
+
+.survey-title {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.board-content {
+  margin: 100px 70px 0 70px
+}
+
+.my-survey-controls {
+  display: flex;
+  justify-content: space-around;
+  margin: 25px 18px 0px 18px;
+}
