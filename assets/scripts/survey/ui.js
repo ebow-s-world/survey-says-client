@@ -83,6 +83,7 @@ const updateAddRemove = function () {
 }
 
 const onShowSurveyUpdate = event => {
+  $('*').scrollTop(0)
   const survey = store.mySurveys.find(surv => surv._id === $(event.target).data('id'))
   store.optionId = 0
   store.optionCount = survey.options.length

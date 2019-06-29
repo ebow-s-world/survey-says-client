@@ -5,14 +5,14 @@ const signUpSuccess = function () {
   $('#log-message').show()
   $('#log-message').html('Sign up Success!')
   $('#log-message').show()
-  $('#log-message').delay(2000).fadeOut('slow')
+  $('#log-message').delay(1000).fadeOut('slow')
   $('form').trigger('reset')
 }
 
 const signUpFailure = function () {
   $('#log-message').html('Sign up Failure!')
   $('#log-message').show()
-  $('#log-message').delay(2000).fadeOut('slow')
+  $('#log-message').delay(1000).fadeOut('slow')
   $('form').trigger('reset')
 }
 
@@ -33,7 +33,7 @@ const signInSuccess = function (data) {
 const signInFailure = function () {
   $('#log-message').html('Sign in Failed')
   $('#log-message').show()
-  $('#log-message').delay(2000).fadeOut('slow')
+  $('#log-message').delay(1000).fadeOut('slow')
   $('form').trigger('reset')
 }
 
@@ -45,7 +45,7 @@ const signOutSuccess = function () {
   $('#log-message').show()
   $('#log-message').html('Signed Out!')
   $('#log-message').show()
-  $('#log-message').delay(2000).fadeOut('slow')
+  $('#log-message').delay(1000).fadeOut('slow')
   $('.content').empty()
   $('#create-form').empty()
 }
@@ -53,7 +53,7 @@ const signOutSuccess = function () {
 const signOutFailure = function () {
   $('#log-message').html('Sign out Failed!')
   $('#log-message').show()
-  $('#log-message').delay(2000).fadeOut('slow')
+  $('#log-message').delay(1000).fadeOut('slow')
 }
 
 const changePasswordSuccess = function () {
@@ -69,7 +69,7 @@ const changePasswordFailure = function () {
   $('.change-password-message').html('')
   $('.change-password-message').show()
   $('.change-password-message').html('Failure!')
-  $('.change-password-message').delay(2000).fadeOut()
+  $('.change-password-message').delay(1000).fadeOut()
 }
 
 module.exports = {
