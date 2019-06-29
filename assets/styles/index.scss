@@ -1,18 +1,24 @@
 @import '~bootstrap/scss/bootstrap';
 @import 'theme';
 
+$yellow: #eaea00;
+$grey: #dfdfdf;
+$blue: #9191ff;
+
 #top-nav {
   height: fixed;
   @extend .navbar;
-  @extend .navbar-dark;
-  @extend .bg-dark;
+  // @extend .navbar-dark;
+  // @extend .bg-dark;
   @extend .fixed-top;
 
   .app-name {
     @extend .navbar-brand;
     @extend .h1;
     margin-bottom: 0;
-    font-family: 'Montserrat Alternates', sans-serif;
+    font-family: 'Rye', cursive;
+    font-size: 28px;
+    color: $yellow;
   }
 }
 
@@ -32,17 +38,31 @@
 }
 
 img {
-  height: 85px;
-  width: auto;
-  margin: -8px -7px -8px -17px
+  height: 70px;
+  width: 100px;
+  margin: -8px -7px -8px -17px;
 }
 
 nav {
-  background-image: url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/5fddc4b4-1f6e-41d7-9006-fbd3be6f88be/d7fbvzl-8e8f3a52-e52e-4fdd-b2e9-7a73b33991b2.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzVmZGRjNGI0LTFmNmUtNDFkNy05MDA2LWZiZDNiZTZmODhiZVwvZDdmYnZ6bC04ZThmM2E1Mi1lNTJlLTRmZGQtYjJlOS03YTczYjMzOTkxYjIuZ2lmIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.fkkYHgCLgLBM12nva262-fP9dxIYP-W0ECIivS6aIH8");
-  background-position: center;
+  // background-image: url("Light background.jpg");
+  // background-size: 1000px;
+  background-color: $blue;
+  background-position: top;
 }
 
 
 body {
   margin: 0 20px;
+  background-color: $grey;
+}
+
+button, .btn {
+  font-family: 'DM Serif Display', serif;
+  background-color: $yellow;
+}
+
+* {
+  font-family: 'DM Serif Display', serif;
+  font-style: normal;
+  font-weight: 400;
 }
