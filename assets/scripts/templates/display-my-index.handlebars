@@ -1,12 +1,13 @@
 {{#each surveys as |survey|}}
   <div class="col-6">
+    <!-- <img class="row" src="OldSchoolSurvey2.jpg"  style="visibility: hidden"/> -->
   <section class="survey-data container" data-id="{{survey._id}}">
     <div class="messaging row"></div>
     <h3 class="survey-title row">
       {{survey.title}}
     </h3>
 
-<div class="row">
+<div class="board-content row">
   {{#each survey.options as |option|}}
   <div class="col-6 choice" data-option-id="{{option.id}}">
     <span class="option-title">
@@ -29,10 +30,11 @@
   </ul>
 </div>
 
-
-<button data-id="{{survey._id}}" class="show-update-survey btn btn-sm btn-outline-dark margin-top-5 bare-button">edit survey</button>
-<button value="delete" data-id="{{survey._id}}" class="delete-survey btn btn-sm btn-outline-dark margin-top-5 bare-button">delete</button>
-<input type="submit" value="see responses" class="results-button btn btn-sm btn-outline-dark margin-top-5 bare-button">
+<div class="my-survey-controls row">
+  <button data-id="{{survey._id}}" class="show-update-survey btn btn-sm btn-outline-dark margin-top-5 bare-button">edit survey</button>
+  <button value="delete" data-id="{{survey._id}}" class="delete-survey btn btn-sm btn-outline-dark margin-top-5 bare-button">delete</button>
+  <input type="submit" value="see responses" class="results-button btn btn-sm btn-outline-dark margin-top-5 bare-button">
+</div>
 </section>
 </div>
 {{/each}}
