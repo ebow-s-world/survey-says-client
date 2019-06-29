@@ -80,7 +80,7 @@ button, .btn {
   background-image: url("OldschoolSurvey2.jpg");
 }
 
-.survey-title {
+.my-survey-title {
   display: flex;
   justify-content: center;
   margin-top: 30px;
@@ -98,4 +98,8 @@ button, .btn {
 
 .option-number {
   float: right;
+}
+
+.content {
+  margin-top: 20px;
 }
