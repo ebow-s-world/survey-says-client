@@ -99,7 +99,6 @@ const onUpdateSurvey = async function (event) {
 const onGetResults = (event) => {
   event.preventDefault()
   const surveyId = $(event.target.parentElement.parentElement).data('id')
-  console.log('surveyID is', surveyId)
   $(`.results-${surveyId}`).toggleClass('disable')
 }
 
