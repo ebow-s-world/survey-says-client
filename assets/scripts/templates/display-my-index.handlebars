@@ -13,11 +13,13 @@
     <span class="option-title">
       {{option.name}}
     </span>
-
+    <span class="results-{{survey._id}} disable option-number">
+      {{option.count}}
+    </span>
   </div>
 {{/each}}
 </div>
-<div id="results-{{survey._id}}" class="disable">
+<!-- <div id="results-{{survey._id}}" class="disable">
   <h3>Results</h3>
   <ul>
     {{#each survey.options as |option|}}
@@ -28,7 +30,7 @@
     </li>
     {{/each}}
   </ul>
-</div>
+</div> -->
 
 <div class="my-survey-controls row">
   <button data-id="{{survey._id}}" class="show-update-survey btn btn-sm btn-outline-dark margin-top-5 bare-button">edit survey</button>
