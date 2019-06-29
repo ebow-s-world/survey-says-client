@@ -9,9 +9,8 @@ $blue: #9191ff;
 
 #top-nav {
   height: fixed;
+  background-color: $blue;
   @extend .navbar;
-  // @extend .navbar-dark;
-  // @extend .bg-dark;
   @extend .fixed-top;
 
   .app-name {
@@ -27,7 +26,6 @@ $blue: #9191ff;
 .log-before-nav2 {
   margin-top: 95px;
 }
-
 
 .nav2 {
   margin: 85px 0 10px 0;
