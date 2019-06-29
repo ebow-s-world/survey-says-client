@@ -48,7 +48,10 @@ const onIndexAfterSubmit = (event) => {
 
   api.indexSurveys()
     .then((responseData) => $('.content').html(indexDisplay({ surveys: responseData.survey })))
-    .then(() => $(`.messaging-${surveyId}`).html('thanks for submitting!'))
+    .then(() => {
+      $(`.messaging-${surveyId}`).html('thanks for submitting!')
+    })
+    .then(() => $(`.submit-${surveyId}`).remove())
     .then(doHide)
 }
 
