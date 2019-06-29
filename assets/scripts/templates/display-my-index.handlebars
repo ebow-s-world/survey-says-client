@@ -1,21 +1,21 @@
 {{#each surveys as |survey|}}
   <div class="col-6">
-  <section class="survey-data" data-id="{{survey._id}}">
-    <div class="messaging"></div>
-    <h3 class="survey-title">
+  <section class="survey-data container" data-id="{{survey._id}}">
+    <div class="messaging row"></div>
+    <h3 class="survey-title row">
       {{survey.title}}
     </h3>
 
-<ul>
+<div class="row">
   {{#each survey.options as |option|}}
-  <li data-option-id="{{option.id}}">
-    <h6 class="option-title">
+  <div class="col-6 choice" data-option-id="{{option.id}}">
+    <span class="option-title">
       {{option.name}}
-    </h6>
+    </span>
 
-</li>
+  </div>
 {{/each}}
-</ul>
+</div>
 <div id="results-{{survey._id}}" class="disable">
   <h3>Results</h3>
   <ul>
