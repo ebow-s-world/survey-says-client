@@ -1,6 +1,6 @@
 <div class='create-survey'>
 <form id="update-survey" data-id={{survey._id}}>
-  <input type="text" name="survey[title]" maxlength="20" placeholer="Title" value="{{survey.title}}" required><br>
+  <input type="text" name="survey[title]" maxlength="60" placeholer="Title" value="{{survey.title}}" required><br>
   <div id='options'>
     {{#each survey.options as |option|}}
     <div id='option-{{option._id}}'>
