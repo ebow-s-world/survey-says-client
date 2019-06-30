@@ -6,6 +6,7 @@ const indexDisplayMy = require('../templates/display-my-index.handlebars')
 const updateSurveyForm = require('../templates/update-survey-field.handlebars')
 const createSurvey = require('../templates/create-survey-field.handlebars')
 const createOption = require('../templates/create-option-field.handlebars')
+const api = require('./api.js')
 
 // const onCreateSurveySuccess = responseData => {
 //   // $('#content').html(showSurveyTemplate({survey: responseData.survey}))
@@ -47,7 +48,12 @@ const onIndexMySurveysSuccess = responseData => {
 }
 
 const onDeleteSuccess = () => {
-  $('.content').text('deleted!')
+  $('#log-message').html('Deleted!')
+  $('#log-message').show()
+  $('#log-message').delay(1000).fadeOut('slow')
+  api.indexYourSurveys()
+    .then(onIndexMySurveysSuccess)
+    .then($('*').scrollTop(0))
 }
 
 const showCreateSurvey = function (event) {
