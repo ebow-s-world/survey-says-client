@@ -20,11 +20,13 @@ const api = require('./api.js')
 
 const onIndexSurveysSuccess = responseData => {
   // $('#content').html(showSurveyTemplate({survey: responseData.survey}))
-  // console.log(responseData)
+  console.log(responseData)
   if (responseData.survey.length === 0) {
-    $('.content').html('no surveys to display')
+    $('#log-message').html('No surveys to display')
+    $('#log-message').show()
+    $('#log-message').delay(2000).fadeOut()
   } else {
-    $('.content').html(indexDisplay({ surveys: responseData.survey }))
+    $('.content').html(indexDisplay({ surveys: responseData.survey.reverse() }))
   }
   $('form').trigger('reset')
   $('#create-form').empty()
@@ -37,9 +39,11 @@ const onIndexMySurveysSuccess = responseData => {
   // console.log(responseData)
   store.mySurveys = responseData.survey
   if (store.mySurveys.length === 0) {
-    $('.content').html('no surveys to display')
+    $('#log-message').html('No surveys to display')
+    $('#log-message').show()
+    $('#log-message').delay(1000).fadeOut()
   } else {
-    $('.content').html(indexDisplayMy({ surveys: responseData.survey }))
+    $('.content').html(indexDisplayMy({ surveys: responseData.survey.reverse() }))
   }
   $('form').trigger('reset')
   $('#create-form').empty()
