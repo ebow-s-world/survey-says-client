@@ -13,7 +13,9 @@ const onCreateSurvey = async function (event) {
   const newOptions = []
   try {
     newSurvey = await api.createSurvey({ survey: data.survey })
-    $('.content').text('created!')
+    $('#log-message').show()
+    $('#log-message').html('Survey created!')
+    $('#log-message').delay(1000).fadeOut('slow')
     for (let i = 0; i < data.options.length; i++) {
       newOptions[i] = await api.createOption({option: {name: data.options[i], survey: newSurvey.survey._id}})
     }
@@ -49,7 +51,9 @@ const onIndexAfterSubmit = (event) => {
   api.indexSurveys()
     .then((responseData) => $('.content').html(indexDisplay({ surveys: responseData.survey })))
     .then(() => {
+      $(`.messaging-${surveyId}`).show()
       $(`.messaging-${surveyId}`).html('thanks for submitting!')
+      $(`.messaging-${surveyId}`).delay(1000).fadeOut('slow')
     })
     .then(() => $(`.submit-${surveyId}`).remove())
     .then(doHide)
@@ -96,14 +100,16 @@ const onUpdateSurvey = async function (event) {
   } catch (err) {
     throw err
   }
-  $('.content').text('updated!')
+  $('#log-message').html('Survey updated!')
+  $('#log-message').show()
+  $('#log-message').delay(1000).fadeOut('slow')
   $('#update-survey').addClass('disable')
 }
 
 const onGetResults = (event) => {
   event.preventDefault()
-  const surveyId = $(event.target.parentElement).data('id')
-  $(`#results-${surveyId}`).toggleClass('disable')
+  const surveyId = $(event.target.parentElement.parentElement).data('id')
+  $(`.results-${surveyId}`).toggleClass('disable')
 }
 
 module.exports = {

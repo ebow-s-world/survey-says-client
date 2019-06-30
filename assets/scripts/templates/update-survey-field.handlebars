@@ -1,13 +1,15 @@
+<div class='create-survey'>
 <form id="update-survey" data-id={{survey._id}}>
-  <input type="text" name="survey[title]" maxlength="40" placeholer="Title" value="{{survey.title}}" required><br>
+  <input type="text" name="survey[title]" maxlength="20" placeholer="Title" value="{{survey.title}}" required><br>
   <div id='options'>
     {{#each survey.options as |option|}}
     <div id='option-{{option._id}}'>
-      <input type="text" name="options[]" maxlength="40" placeholder="Option Name" value="{{option.name}}" required>
+      <input type="text" name="options[]" maxlength="28" placeholder="Option Name" value="{{option.name}}" required>
       <button type='button' data-optionid='{{option._id}}' class='btn btn-danger remove-option'>-</button><br>
     </div>
     {{/each}}
   </div>
-  <button type=button id='add-option' class='btn btn-success'>+</button>
-  <input type="submit" value="Update Survey" class="btn btn-success">
+  <button type=button id='add-option' class='btn add-option'>+</button>
+  <input type="submit" value="Update Survey" class="btn">
 </form>
+</div>

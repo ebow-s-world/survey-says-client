@@ -23,7 +23,9 @@ const onCreateResponse = function (event) {
       .catch(responseUi.onSubmitFailure)
       // .catch(console.error)
   } else {
+    $(`.messaging-${surveyId}`).show()
     $(`.messaging-${surveyId}`).html('pick something!')
+    $(`.messaging-${surveyId}`).delay(1000).fadeOut('slow')
   }
 }
 
