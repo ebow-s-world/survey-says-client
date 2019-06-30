@@ -61,7 +61,7 @@ const changePasswordSuccess = function () {
   $('.change-password-message').html('')
   $('.change-password-message').show()
   $('.change-password-message').html('Password Changed!')
-  $('.change-password-message').delay(2000).fadeOut()
+  $('.change-password-message').delay(1000).fadeOut()
 }
 
 const changePasswordFailure = function () {

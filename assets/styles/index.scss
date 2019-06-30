@@ -5,11 +5,14 @@ $yellow: #eaea00;
 $yellow-hover: #e0e000;
 $grey: #dfdfdf;
 $blue: #9191ff;
+$red: #be0000;
 
 
 #top-nav {
   height: fixed;
   background-color: $blue;
+  border-bottom: 3px solid;
+  border-color: $red;
   @extend .navbar;
   @extend .fixed-top;
 
@@ -46,11 +49,12 @@ body {
   background-color: $grey;
 }
 
-button, .btn {
+.btn {
   font-family: 'DM Serif Display', serif;
   background-color: $yellow;
   // border: 1px solid;
   // border-color: black;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .btn:hover {
@@ -72,9 +76,11 @@ button, .btn {
 
 .survey-data {
   margin-bottom: 20px;
-  height: 405px;
-  width: 641px;
+  height: 507px;
+  width: 802px;
   background-image: url("OldschoolSurvey2.jpg");
+  background-size: cover;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .my-survey-title {
@@ -84,7 +90,7 @@ button, .btn {
 }
 
 .board-content {
-  margin: 100px 70px 0 70px
+  margin: 175px 100px 0 100px
 }
 
 .my-survey-controls {
@@ -97,13 +103,13 @@ button, .btn {
   float: right;
 }
 
-.content, #create-form {
-  margin-top: -40px;
-}
+// .content, #create-form {
+//   margin-top: -10px;
+// }
 
-#create-form {
-  margin-bottom: 50px;
-}
+// #create-form {
+//   margin-bottom: 50px;
+// }
 
 .remove-option {
   background-color: red;
@@ -139,4 +145,57 @@ button, .btn {
 
 #sign-up {
   margin-bottom: 20px;
+}
+
+.survey-messaging {
+  height: 2em;
+}
+
+.all-survey-results {
+  margin-top: 2em;
+}
+
+.remove-option {
+  background-color: red;
+  color: white;
+}
+
+.remove-option:hover {
+  background-color: $red;
+  color: white;
+}
+
+.add-option {
+  background-color: green;
+  color: white;
+}
+
+.add-option:hover {
+  background-color: #00d900;
+  color: white;
+}
+
+#create-form {
+  display: flex;
+  justify-content: center;
+}
+
+.create-survey {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  background-color: $blue;
+  // border: 3px solid;
+  // border-color: $red;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.option-title, .option-number {
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+}
+
+.text-field {
+  margin-bottom: 12px;
 }
