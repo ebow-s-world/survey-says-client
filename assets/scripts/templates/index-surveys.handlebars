@@ -3,26 +3,30 @@
     <h3 class="survey-title">{{survey.title}}</h3>
   <form class="survey-form" data-id="{{survey._id}}">
     {{#each survey.options as |option|}}
-      <input data-id="{{option.id}}" name="response[answer]" type="radio" input-type="checkbox" class="option-title radio" value="{{option.name}}">{{option.name}}</input>
+      <input data-id="{{option.id}}" name="response[answer]" type="radio" input-type="checkbox" class="option-title radio" value="{{option.name}}"> {{option.name}}</input>
       <br>
   {{/each}}
-  <div class="messaging-{{survey._id}}">
-  <p></p>
+  <div class="survey-messaging">
+    <p class="messaging-{{survey._id}}"></p>
   </div>
   <input type=submit class="survey-submit btn btn-sm btn-outline-dark">
-  <button class="results-button btn btn-sm btn-outline-dark">Results</button>
+  <!-- This span around the button is so that surveyEvents.onGetResults works because
+      it gets the id of the parent element's parent-->
+  <span>
+    <button class="results-button btn btn-sm btn-outline-dark">Results</button>
+  </span>
 </form>
-<div id="results-{{survey._id}}" class="disable">
+<div class="results-{{survey._id}} disable all-survey-results">
   <h3>Results</h3>
-  <ul>
+  <div>
     {{#each survey.options as |option|}}
-    <li data-option-id="{{option.id}}">
+    <div data-option-id="{{option.id}}">
       <h6 class="option-results">
         {{option.name}}: {{option.count}}
       </h6>
-    </li>
+    </div>
     {{/each}}
-  </ul>
+  </div>
 </div>
 </section>
 {{/each}}

@@ -1,28 +1,37 @@
 @import '~bootstrap/scss/bootstrap';
 @import 'theme';
 
+$yellow: #eaea00;
+$yellow-hover: #e0e000;
+$grey: #dfdfdf;
+$blue: #9191ff;
+$red: #be0000;
+
+
 #top-nav {
   height: fixed;
+  background-color: $blue;
+  border-bottom: 3px solid;
+  border-color: $red;
   @extend .navbar;
-  @extend .navbar-dark;
-  @extend .bg-dark;
   @extend .fixed-top;
 
   .app-name {
     @extend .navbar-brand;
     @extend .h1;
     margin-bottom: 0;
-    font-family: 'Montserrat Alternates', sans-serif;
+    font-family: 'Rye', cursive;
+    font-size: 28px;
+    color: $yellow;
   }
 }
 
 .log-before-nav2 {
-  margin-top: 70px;
+  margin-top: 95px;
 }
 
-
 .nav2 {
-  margin-top: 70px;
+  margin: 85px 0 10px 0;
   display: flex;
   justify-content: space-between;
 }
@@ -31,9 +40,165 @@
   display: none;
 }
 
-
-
+.hidden {
+  display: none;
+}
 
 body {
   margin: 0 20px;
+  background-color: $grey;
+}
+
+.btn {
+  font-family: 'DM Serif Display', serif;
+  background-color: $yellow;
+  // border: 1px solid;
+  // border-color: black;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.btn:hover {
+  background-color: $yellow-hover;
+  color: black;
+}
+
+* {
+  font-family: 'DM Serif Display', serif;
+  font-style: normal;
+  font-weight: 400;
+}
+
+.choice {
+  color: white;
+  background-color: black;
+  border: 1px solid;
+}
+
+.survey-data {
+  margin-bottom: 20px;
+  height: 507px;
+  width: 802px;
+  background-image: url("OldschoolSurvey2.jpg");
+  background-size: cover;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.my-survey-title {
+  display: flex;
+  justify-content: center;
+  margin: 30px 250px 0 250px;
+}
+
+.board-content {
+  margin: 175px 100px 0 100px
+}
+
+.my-survey-controls {
+  display: flex;
+  justify-content: space-around;
+  margin: 25px 18px 0px 18px;
+}
+
+.option-number {
+  float: right;
+}
+
+// .content, #create-form {
+//   margin-top: -10px;
+// }
+
+// #create-form {
+//   margin-bottom: 50px;
+// }
+
+.remove-option {
+  background-color: red;
+  color: white;
+}
+
+.dropdown-item:active {
+  background-color: white;
+}
+
+.dropdown-item:hover {
+  background-color: white;
+}
+
+#change-password {
+  margin-top: 2em;
+}
+
+.account-line {
+  margin-bottom: 8px;
+}
+
+.dropdown-footer {
+  height: 2em;
+  display: flex;
+  justify-content: center;
+}
+
+#fixed-height {
+  height: 2em;
+  margin-bottom: 20px;
+}
+
+#sign-up {
+  margin-bottom: 20px;
+}
+
+.survey-messaging {
+  height: 2em;
+}
+
+.all-survey-results {
+  margin-top: 2em;
+}
+
+.remove-option {
+  background-color: red;
+  color: white;
+}
+
+.remove-option:hover {
+  background-color: $red;
+  color: white;
+}
+
+.add-option {
+  background-color: green;
+  color: white;
+}
+
+.add-option:hover {
+  background-color: #00d900;
+  color: white;
+}
+
+#create-form {
+  display: flex;
+  justify-content: center;
+}
+
+.create-survey {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  background-color: $blue;
+  // border: 3px solid;
+  // border-color: $red;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-bottom: 20px;
+}
+
+
+.text-field {
+  margin-bottom: 12px;
+}
+
+.steve-harvey, .steve-harvey-upset {
+  height: 200px;
+  width: auto;
+  float: right;
 }

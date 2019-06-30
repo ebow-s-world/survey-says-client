@@ -5,15 +5,18 @@ const signUpSuccess = function () {
   $('#log-message').show()
   $('#log-message').html('Sign up Success!')
   $('#log-message').show()
-  $('#log-message').delay(2000).fadeOut('slow')
+  $('#log-message').delay(1000).fadeOut('slow')
   $('form').trigger('reset')
+  $('.steve-harvey-upset').addClass('disable')
 }
 
 const signUpFailure = function () {
   $('#log-message').html('Sign up Failure!')
   $('#log-message').show()
-  $('#log-message').delay(2000).fadeOut('slow')
+  $('#log-message').delay(1000).fadeOut('slow')
   $('form').trigger('reset')
+  $('.steve-harvey').addClass('disable')
+  $('.steve-harvey-upset').removeClass('disable')
 }
 
 const signInSuccess = function (data) {
@@ -28,13 +31,17 @@ const signInSuccess = function (data) {
   $('#log-message').html('Signed In Successfully!')
   $('#log-message').show()
   $('#log-message').delay(1000).fadeOut('slow')
+  $('.steve-harvey').addClass('disable')
+  $('.steve-harvey-upset').addClass('disable')
 }
 
 const signInFailure = function () {
   $('#log-message').html('Sign in Failed')
   $('#log-message').show()
-  $('#log-message').delay(2000).fadeOut('slow')
+  $('#log-message').delay(1000).fadeOut('slow')
   $('form').trigger('reset')
+  $('.steve-harvey').addClass('disable')
+  $('.steve-harvey-upset').removeClass('disable')
 }
 
 const signOutSuccess = function () {
@@ -45,15 +52,16 @@ const signOutSuccess = function () {
   $('#log-message').show()
   $('#log-message').html('Signed Out!')
   $('#log-message').show()
-  $('#log-message').delay(2000).fadeOut('slow')
+  $('#log-message').delay(1000).fadeOut('slow')
   $('.content').empty()
   $('#create-form').empty()
+  $('.steve-harvey').removeClass('disable')
 }
 
 const signOutFailure = function () {
   $('#log-message').html('Sign out Failed!')
   $('#log-message').show()
-  $('#log-message').delay(2000).fadeOut('slow')
+  $('#log-message').delay(1000).fadeOut('slow')
 }
 
 const changePasswordSuccess = function () {
@@ -61,7 +69,7 @@ const changePasswordSuccess = function () {
   $('.change-password-message').html('')
   $('.change-password-message').show()
   $('.change-password-message').html('Password Changed!')
-  $('.change-password-message').delay(2000).fadeOut()
+  $('.change-password-message').delay(1000).fadeOut()
 }
 
 const changePasswordFailure = function () {
@@ -69,7 +77,7 @@ const changePasswordFailure = function () {
   $('.change-password-message').html('')
   $('.change-password-message').show()
   $('.change-password-message').html('Failure!')
-  $('.change-password-message').delay(2000).fadeOut()
+  $('.change-password-message').delay(1000).fadeOut()
 }
 
 module.exports = {

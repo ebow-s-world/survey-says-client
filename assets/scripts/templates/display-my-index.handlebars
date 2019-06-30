@@ -1,21 +1,25 @@
 {{#each surveys as |survey|}}
-  <section class="survey-data col-6" data-id="{{survey._id}}">
-    <div class="messaging"></div>
-    <h3 class="survey-title">
+  <div class="col-12">
+    <!-- <img class="row" src="OldSchoolSurvey2.jpg"  style="visibility: hidden"/> -->
+  <section class="survey-data container" data-id="{{survey._id}}">
+    <div class="messaging row"></div>
+    <h4 class="my-survey-title row">
       {{survey.title}}
-    </h3>
+    </h4>
 
-<ul>
+<div class="board-content row">
   {{#each survey.options as |option|}}
-  <li data-option-id="{{option.id}}">
-    <h6 class="option-title">
+  <div class="col-6 choice" data-option-id="{{option.id}}">
+    <span class="option-title">
       {{option.name}}
-    </h6>
-
-</li>
+    </span>
+    <span class="results-{{survey._id}} disable option-number">
+      {{option.count}}
+    </span>
+  </div>
 {{/each}}
-</ul>
-<div id="results-{{survey._id}}" class="disable">
+</div>
+<!-- <div id="results-{{survey._id}}" class="disable">
   <h3>Results</h3>
   <ul>
     {{#each survey.options as |option|}}
@@ -26,11 +30,13 @@
     </li>
     {{/each}}
   </ul>
+</div> -->
+
+<div class="my-survey-controls row">
+  <button data-id="{{survey._id}}" class="show-update-survey btn btn-sm btn-outline-dark margin-top-5 bare-button">Edit survey</button>
+  <button value="delete" data-id="{{survey._id}}" class="delete-survey btn btn-sm btn-outline-dark margin-top-5 bare-button">Delete</button>
+  <input type="submit" value="Responses" class="results-button btn btn-sm btn-outline-dark margin-top-5 bare-button">
 </div>
-
-
-<button data-id="{{survey._id}}" class="show-update-survey btn btn-sm btn-outline-dark margin-top-5 bare-button">edit survey</button>
-<button value="delete" data-id="{{survey._id}}" class="delete-survey btn btn-sm btn-outline-dark margin-top-5 bare-button">delete</button>
-<input type="submit" value="see responses" class="results-button btn btn-sm btn-outline-dark margin-top-5 bare-button">
 </section>
+</div>
 {{/each}}
