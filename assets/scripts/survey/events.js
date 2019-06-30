@@ -100,7 +100,9 @@ const onUpdateSurvey = async function (event) {
   } catch (err) {
     throw err
   }
-  $('.content').text('updated!')
+  $('#log-message').html('Survey updated!')
+  $('#log-message').show()
+  $('#log-message').delay(1000).fadeOut('slow')
   $('#update-survey').addClass('disable')
 }
 
