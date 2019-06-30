@@ -8,19 +8,7 @@ const createSurvey = require('../templates/create-survey-field.handlebars')
 const createOption = require('../templates/create-option-field.handlebars')
 const api = require('./api.js')
 
-// const onCreateSurveySuccess = responseData => {
-//   // $('#content').html(showSurveyTemplate({survey: responseData.survey}))
-//   // console.log(responseData)
-//   $('.content').text(responseData.survey.title)
-//   $('form').trigger('reset')
-//   $('.content').text('new survey success!')
-//   // $('#message').text('created successfully!')
-//   // setTimeout(() => $('#message').text(''), 4000)
-// }
-
 const onIndexSurveysSuccess = responseData => {
-  // $('#content').html(showSurveyTemplate({survey: responseData.survey}))
-  console.log(responseData)
   if (responseData.survey.length === 0) {
     $('#log-message').html('No surveys to display')
     $('#log-message').show()
@@ -30,13 +18,9 @@ const onIndexSurveysSuccess = responseData => {
   }
   $('form').trigger('reset')
   $('#create-form').empty()
-  // $('#message').text('created successfully!')
-  // setTimeout(() => $('#message').text(''), 4000)
 }
 
 const onIndexMySurveysSuccess = responseData => {
-  // $('#content').html(showSurveyTemplate({survey: responseData.survey}))
-  // console.log(responseData)
   store.mySurveys = responseData.survey
   if (store.mySurveys.length === 0) {
     $('#log-message').html('No surveys to display')
@@ -47,8 +31,6 @@ const onIndexMySurveysSuccess = responseData => {
   }
   $('form').trigger('reset')
   $('#create-form').empty()
-  // $('#message').text('created successfully!')
-  // setTimeout(() => $('#message').text(''), 4000)
 }
 
 const onDeleteSuccess = () => {
