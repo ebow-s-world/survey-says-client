@@ -28,6 +28,7 @@ const signInSuccess = function (data) {
   $('#log-message').html('Signed In Successfully!')
   $('#log-message').show()
   $('#log-message').delay(1000).fadeOut('slow')
+  $('.steve-harvey').addClass('disable')
 }
 
 const signInFailure = function () {
@@ -48,6 +49,7 @@ const signOutSuccess = function () {
   $('#log-message').delay(1000).fadeOut('slow')
   $('.content').empty()
   $('#create-form').empty()
+  $('.steve-harvey').removeClass('disable')
 }
 
 const signOutFailure = function () {
