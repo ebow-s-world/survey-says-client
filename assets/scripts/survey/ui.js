@@ -6,6 +6,7 @@ const indexDisplayMy = require('../templates/display-my-index.handlebars')
 const updateSurveyForm = require('../templates/update-survey-field.handlebars')
 const createSurvey = require('../templates/create-survey-field.handlebars')
 const createOption = require('../templates/create-option-field.handlebars')
+const api = require('./api.js')
 
 // const onCreateSurveySuccess = responseData => {
 //   // $('#content').html(showSurveyTemplate({survey: responseData.survey}))
@@ -19,11 +20,13 @@ const createOption = require('../templates/create-option-field.handlebars')
 
 const onIndexSurveysSuccess = responseData => {
   // $('#content').html(showSurveyTemplate({survey: responseData.survey}))
-  // console.log(responseData)
+  console.log(responseData)
   if (responseData.survey.length === 0) {
-    $('.content').html('no surveys to display')
+    $('#log-message').html('No surveys to display')
+    $('#log-message').show()
+    $('#log-message').delay(2000).fadeOut()
   } else {
-    $('.content').html(indexDisplay({ surveys: responseData.survey }))
+    $('.content').html(indexDisplay({ surveys: responseData.survey.reverse() }))
   }
   $('form').trigger('reset')
   $('#create-form').empty()
@@ -36,9 +39,11 @@ const onIndexMySurveysSuccess = responseData => {
   // console.log(responseData)
   store.mySurveys = responseData.survey
   if (store.mySurveys.length === 0) {
-    $('.content').html('no surveys to display')
+    $('#log-message').html('No surveys to display')
+    $('#log-message').show()
+    $('#log-message').delay(1000).fadeOut()
   } else {
-    $('.content').html(indexDisplayMy({ surveys: responseData.survey }))
+    $('.content').html(indexDisplayMy({ surveys: responseData.survey.reverse() }))
   }
   $('form').trigger('reset')
   $('#create-form').empty()
@@ -47,7 +52,12 @@ const onIndexMySurveysSuccess = responseData => {
 }
 
 const onDeleteSuccess = () => {
-  $('.content').text('deleted!')
+  $('#log-message').html('Deleted!')
+  $('#log-message').show()
+  $('#log-message').delay(1000).fadeOut('slow')
+  api.indexYourSurveys()
+    .then(onIndexMySurveysSuccess)
+    .then($('*').scrollTop(0))
 }
 
 const showCreateSurvey = function (event) {

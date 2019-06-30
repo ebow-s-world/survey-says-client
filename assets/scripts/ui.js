@@ -7,6 +7,7 @@ const signUpSuccess = function () {
   $('#log-message').show()
   $('#log-message').delay(1000).fadeOut('slow')
   $('form').trigger('reset')
+  $('.steve-harvey-upset').addClass('disable')
 }
 
 const signUpFailure = function () {
@@ -14,6 +15,8 @@ const signUpFailure = function () {
   $('#log-message').show()
   $('#log-message').delay(1000).fadeOut('slow')
   $('form').trigger('reset')
+  $('.steve-harvey').addClass('disable')
+  $('.steve-harvey-upset').removeClass('disable')
 }
 
 const signInSuccess = function (data) {
@@ -28,6 +31,8 @@ const signInSuccess = function (data) {
   $('#log-message').html('Signed In Successfully!')
   $('#log-message').show()
   $('#log-message').delay(1000).fadeOut('slow')
+  $('.steve-harvey').addClass('disable')
+  $('.steve-harvey-upset').addClass('disable')
 }
 
 const signInFailure = function () {
@@ -35,6 +40,8 @@ const signInFailure = function () {
   $('#log-message').show()
   $('#log-message').delay(1000).fadeOut('slow')
   $('form').trigger('reset')
+  $('.steve-harvey').addClass('disable')
+  $('.steve-harvey-upset').removeClass('disable')
 }
 
 const signOutSuccess = function () {
@@ -48,6 +55,7 @@ const signOutSuccess = function () {
   $('#log-message').delay(1000).fadeOut('slow')
   $('.content').empty()
   $('#create-form').empty()
+  $('.steve-harvey').removeClass('disable')
 }
 
 const signOutFailure = function () {
