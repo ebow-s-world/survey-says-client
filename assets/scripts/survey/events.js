@@ -49,7 +49,7 @@ const onIndexAfterSubmit = (event) => {
   }
 
   api.indexSurveys()
-    .then((responseData) => $('.content').html(indexDisplay({ surveys: responseData.survey })))
+    .then((responseData) => $('.content').html(indexDisplay({ surveys: responseData.survey.reverse() })))
     .then(() => {
       $(`.messaging-${surveyId}`).html('Thanks for submitting!')
       $(`.messaging-${surveyId}`).show()
