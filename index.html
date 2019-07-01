@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Survey Says!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <!-- Do not add `link` tags-->
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+      <!-- Do not add `script` tags-->
+    <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+    <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+    <link href="https://fonts.googleapis.com/css?family=Bungee+Shade|Codystar|DM+Serif+Display|Rye|Sancreek|Slabo+27px&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <nav id="top-nav">
+      <div class="app-name">Survey Says</div>
+      <!-- <a href="#" class="navbar-left"><img src="/BlueBlock.jpg"></a> -->
+      <div class="nav-buttons">
+        <div class="dropdown">
+          <button class="btn btn-light sign-in disable dropdown-toggle disappear" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Account
+          </button>
+          <div class="dropdown-menu">
+          <form id="change-password" class="dropdown-item">
+          <div class="account-line">
+            <input type="password" name="passwords[old]" placeholder="Old Password" class="log-field">
+          </div>
+          <div class="account-line">
+            <input type="password" name="passwords[new]" placeholder="New Password" class="log-field">
+          </div>
+          <div>
+            <input type="submit" value="Change Password" class="btn btn-block">
+          </div>
+          </form>
+          <form id="sign-out" class="dropdown-item">
+            <input type="submit" value="Sign out" class="btn  btn-block kill-dropdown">
+          </form>
+            <div class="dropdown-footer">
+              <p class="dropdown-item change-password-message"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div class="disable sign-in nav2">
+      <button id="index-survey" class="btn ">Take a Survey</button>
+      <div>
+        <button id="show-create-survey" class="btn ">Create Survey</button>
+        <button id="index-yours" class="btn ">My Surveys</button>
+      </div>
+    </div>
+    <img src="https://i.imgur.com/Fg6QiGZ.jpg" alt="Steve Harvey Goodbye" class="steve-harvey disable">
+    <img src="https://i.imgur.com/86c2fck.jpg" alt="Steve Harvey Disappointed" class="steve-harvey-upset disable">
+    <div class="log log-before-nav2">
+      <div id="fixed-height">
+        <h3 id="log-message">Welcome</h3>
+      </div>
+      <form id="sign-up">
+        <h3 class="initLog-headers">Sign up</h3>
+          <input class="log-field" type="text" name="credentials[email]" maxlength="40" placeholder="Email">
+          <input class="log-field" type="password" name="credentials[password]" maxlength="40" placeholder="Password"><br>
+          <input class="log-field" type="password" name="credentials[password_confirmation]" maxlength="40" placeholder="Confirm Password">
+          <br><input type="submit" value="Sign up" class="btn ">
+      </form>
+      <form id="sign-in">
+        <h3 class="initLog-headers">Sign in</h3>
+          <input class="log-field" type="text" name="credentials[email]" maxlength="40" placeholder="Email">
+          <input class="log-field" type="password" name="credentials[password]" maxlength="40" placeholder="Password">
+          <br><input type="submit" value="Sign in" class="btn ">
+      </form>
+    </div>
+    <div id='create-form'>
+    </div>
+    <!-- <main class="container"> -->
+    <main>
+      <div class="content disable sign-in row">
+      </div>
+    </main>
+  </body>
+</html>
