@@ -16,7 +16,7 @@
     <button class="results-button btn btn-sm btn-outline-dark">Results</button>
   </span>
 </form>
-<div class="results-{{survey._id}} disable all-survey-results">
+<div data-id="{{survey._id}}" class="generic results-{{survey._id}} disable all-survey-results">
   <h3>Results</h3>
   <div>
     {{#each survey.options as |option|}}
