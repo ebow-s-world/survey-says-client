@@ -40,11 +40,14 @@ const onIndexSurveys = (event) => {
 const onIndexAfterSubmit = (event) => {
   event.preventDefault()
   const surveyId = $(event.target.parentElement).data('id')
-  const resultsHidden = $(`#results-${surveyId}`).hasClass('disable')
+  const resultsShown = document.querySelectorAll('.generic:not(.disable)')
+
   const doHide = () => {
-    if (resultsHidden) {
+    if (resultsShown.length > 0) {
+      resultsShown.forEach(result => {
+        document.querySelector(`.results-${$(result).data('id')}`).classList.remove('disable')
+      })
     } else {
-      $(`#results-${surveyId}`).toggle()
     }
   }
 
@@ -55,8 +58,8 @@ const onIndexAfterSubmit = (event) => {
       $(`.messaging-${surveyId}`).show()
       $(`.messaging-${surveyId}`).delay(1000).fadeOut('slow')
     })
-    .then(() => $(`.submit-${surveyId}`).remove())
     .then(doHide)
+    .then(() => $(`.submit-${surveyId}`).remove())
 }
 
 const onIndexYourSurveys = (event) => {

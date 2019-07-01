@@ -13,6 +13,7 @@ const onIndexSurveysSuccess = responseData => {
     $('#log-message').html('No surveys to display')
     $('#log-message').show()
     $('#log-message').delay(2000).fadeOut()
+    $('.content').empty()
   } else {
     $('.content').html(indexDisplay({ surveys: responseData.survey.reverse() }))
   }
@@ -26,6 +27,7 @@ const onIndexMySurveysSuccess = responseData => {
     $('#log-message').html('No surveys to display')
     $('#log-message').show()
     $('#log-message').delay(1000).fadeOut()
+    $('.content').empty()
   } else {
     $('.content').html(indexDisplayMy({ surveys: responseData.survey.reverse() }))
   }
